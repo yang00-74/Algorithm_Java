@@ -245,7 +245,7 @@ public class TreeNodeI {
 		
 		return (left>right)? left+1:right+1;
 	}
-//从上往下打印树
+//从上往下打印树,深度遍历
 	 public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
          ArrayList<Integer> list = new ArrayList<Integer>();
          if(root == null) return list;
@@ -260,4 +260,72 @@ public class TreeNodeI {
          }
          return list;
      }
+
+     // 前序遍历二叉树, 栈结构,将 root 压入,出栈,然后将 右子节点 左子节点压入
+	public ArrayList<Integer> preOrder(TreeNode root) {
+		if (root == null) return null;
+		Stack<TreeNode> stack = new Stack<>();
+		stack.push(root);
+		ArrayList<Integer> result = new ArrayList<>();
+		while (!stack.isEmpty()) {
+			TreeNode current = stack.pop();
+			result.add(current.val);
+
+			if (null!= current.right) {
+				stack.push(current.right);
+			}
+			if (null!= current.left) {
+				stack.push(current.left);
+			}
+		}
+		return result;
+	}
+
+	// 中序遍历二叉树,先将左节点压入栈,当节点为 null,栈顶元素出栈,遍历出栈元素的右节点
+    public ArrayList inOrder(TreeNode root) {
+        if (root == null) return null;
+        Stack<TreeNode> stack = new Stack<>();
+        ArrayList<Integer> result = new ArrayList<>();
+        while (null != root || !stack.isEmpty()) {
+            if (null != root) {
+                stack.push(root);
+                root = root.left;
+            } else {
+                root = stack.pop();
+                result.add(root.val);
+                root = root.right;
+
+            }
+        }
+        return result;
+	}
+
+	// 后序遍历二叉树,两个栈实现
+    public  ArrayList<Integer> sufOrder(TreeNode root) {
+        if (root == null) return null;
+        Stack<TreeNode> current = new Stack<>();
+        Stack<TreeNode> back = new Stack<>();
+        current.push(root);
+
+        while(!current.isEmpty()) {
+            TreeNode node = current.pop();
+            back.push(node);
+
+            if (null != node.left) {
+                current.push(node.left);
+            }
+
+            if(null != node.right) {
+                current.push(node.right);
+            }
+        }
+
+        ArrayList<Integer> result = new ArrayList<>();
+        while (!back.isEmpty()) {
+            TreeNode node = back.pop();
+            result.add(node.val);
+        }
+        return result;
+    }
+
 }
