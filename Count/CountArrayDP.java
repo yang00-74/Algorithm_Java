@@ -38,7 +38,7 @@ public class CountArrayDP {
     public static void process(int[] prices, int[] left, int[] right){  
         left[0] = 0;  
         int min = prices[0];  // 最低买入价  
-          
+        //int[] prices = {2,2,3,4,8,2,6};
         // 左边递推公式  
         for(int i=1; i<left.length; i++){  
         // i的最大利润为（i-1的利润）和（当前卖出价和之前最小买入价之差）的较大那个

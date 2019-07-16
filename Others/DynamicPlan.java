@@ -58,10 +58,10 @@ public class DynamicPlan {
         for (int i = 1; i <= length; i++) { // 物品数组循环
             int w = weights[i - 1];
             int v = values[i - 1];
-            for (int j = W; j >=1; j--) { // 0-1 背包问题一维数组表示需逆序遍历,否则之前的计算结果会对之后的结果造成影响
+            for (int j = W; j >= 1; j--) { // 0-1 背包问题一维数组表示需逆序遍历,否则之前的计算结果会对之后的结果造成影响
                 if (j >= w) {
                     dp[j] = Math.max(dp[j], dp[j - w] + v);
-                    System.out.println("dp[" + j + "]:" + dp[j]+" dp[" + (j-w) + "]:"+ dp[j - w]);
+                    System.out.println("dp[" + j + "]:" + dp[j] + " dp[" + (j - w) + "]:" + dp[j - w]);
                 }
             }
         }

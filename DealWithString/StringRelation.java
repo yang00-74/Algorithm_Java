@@ -63,8 +63,8 @@ public class StringRelation {
    }
    
  //因为要输出所有符合条件依赖关系，故需取出listz中数据进行处理
-   String[] st=new String[listz.size()];
-   for(int k=0;k<listz.size();k++){
+	  String[] st = new String[listz.size()];
+	  for (int k = 0; k < listz.size();k++){
 	   char[] h=listz.get(k);//取出一个依赖字符数组   
 	   StringBuilder sb=new StringBuilder(); //将其转化为字符串
 	   for(int j=h.length-1;j>=0;j--){
