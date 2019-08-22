@@ -51,6 +51,8 @@ public class TreeNodeI {
 
         list = t.FindPath(root, 6);
         System.out.println(list.toString());
+
+        t.orderWithRecursive(root,3);
     }
 
     //二叉搜索树转化为有序的双向链表
@@ -245,16 +247,39 @@ public class TreeNodeI {
         return IsBalance(root.left) && IsBalance(root.right);
     }
 
+    /**
+     * 获取二叉树中两个子节点相距最大距离,可转换为二叉树两子树高度之和的问题
+     * Note:根节点两子树高度之和并不一定等于两个子节点相距最大距离,存在相距最远的两子节点在根节点同一子树下的情况,故需变量 max 记录该值
+     *  a                                               a
+     * / \                                             / \
+     * b  c (根节点子树高度之和 = 子节点相距最大距离)          b   c
+     *                                               / \
+     *                                              d   e
+     *                                              /    \
+     *                                             f     g (根节点子树高度之和 < 子节点相距最大距离)
+     *                                            /       \
+     *                                           h        j
+     *
+     * @return max 全局变量记录最大距离
+     */
+    public int maxDistanceOfBinaryTree(TreeNode root) {
+        getHeight(root);
+        return max;
+    }
+
+    static int max = 0;
+
     //获取树高
     private static int getHeight(TreeNode root) {
         if (root == null) return 0;
         int left = getHeight(root.left);
         int right = getHeight(root.right);
+        max = Math.max(max, left + right); // 全局变量记录最大距离
 
         return (left > right) ? left + 1 : right + 1;
     }
 
-    //从上往下打印树,深度遍历
+    //从上往下打印树,层次遍历
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         if (root == null) return list;
@@ -309,7 +334,7 @@ public class TreeNodeI {
         return result;
     }
 
-    // 后序遍历二叉树,两个栈实现
+    // 后序遍历二叉树(深度优先),两个栈实现
     public ArrayList<Integer> sufOrder(TreeNode root) {
         if (root == null) return null;
         Stack<TreeNode> current = new Stack<>();
@@ -337,4 +362,39 @@ public class TreeNodeI {
         return result;
     }
 
+    /**
+     * 递归实现 前中后 三序列遍历
+     *
+     * @param root 树根节点
+     * @param orderMode 遍历模式,1:前序  2:中序  3:后序
+     */
+    public void orderWithRecursive(TreeNode root, int orderMode) {
+        if (root == null) {
+            return;
+        }
+        switch (orderMode) {
+            case 1:
+                visitNode(root);
+                orderWithRecursive(root.left, orderMode);
+                orderWithRecursive(root.right, orderMode);
+                break;
+            case 2:
+                orderWithRecursive(root.left, orderMode);
+                visitNode(root);
+                orderWithRecursive(root.right, orderMode);
+                break;
+            case 3:
+                orderWithRecursive(root.left, orderMode);
+                orderWithRecursive(root.right, orderMode);
+                visitNode(root);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    public void visitNode(TreeNode root) {
+        System.out.print(root.val+",");
+    }
 }

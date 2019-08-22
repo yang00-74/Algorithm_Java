@@ -20,7 +20,7 @@ public class ListNodeI {
         ListNode b = new ListNode(6);
         ListNode c = new ListNode(2);
         ListNode d = new ListNode(4);
-        ListNode e = new ListNode(4);
+        ListNode e = new ListNode(3);
         ListNode f = new ListNode(4);
         ListNode g = new ListNode(5);
 
@@ -29,10 +29,10 @@ public class ListNodeI {
         c.next = d;
         d.next = e;
         e.next = f;
-        f.next = g;
+       // f.next = g;
 
-        new ListNodeI().deleteDuplication2(a);
-        ListNode n = new ListNodeI().ReverseList(a);
+    //    new ListNodeI().deleteDuplication2(a);
+        ListNode n = new ListNodeI().findMidNode(a);
 
         while (a != null) {
             System.out.print(n.val);
@@ -164,5 +164,26 @@ public class ListNodeI {
 
         }
         return pre;
+    }
+
+    /**
+     * 一次遍历访问链表中间节点
+     *
+     * 思路:
+     * 快慢指针,当快指针到达链表尾部时,慢指针到达链表中部
+     */
+    public ListNode findMidNode(ListNode root) {
+        if (root == null) return null;
+        ListNode twoStep = root;
+
+        while (twoStep.next != null) {
+            root = root.next;
+            twoStep = twoStep.next.next;
+            if (twoStep == null) {
+                break;
+            }
+        }
+        System.out.println(root.val);
+        return root;
     }
 }
