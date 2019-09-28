@@ -10,6 +10,10 @@ public class SlideWindow {
         new SlideWindow().maxInWindows(a, 3);
     }
 
+    /**
+     * 长度为 n 的窗口在数组上滑动，窗口每次移动一格，输出每次移动前窗口中的最大数字
+     *
+     * */
     public ArrayList<Integer> maxInWindows(int[] num, int size) {
 
         if (num == null || size < 0) {

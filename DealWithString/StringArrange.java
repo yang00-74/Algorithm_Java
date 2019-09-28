@@ -25,28 +25,29 @@ public class StringArrange {
     }
 
     public ArrayList<String> Permutation(String str) {
-        ArrayList<String> re = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<String>();
         if (str == null || str.length() == 0) {
-            return re;
+            return result;
         }
         HashSet<String> set = new HashSet<String>();
 
         fun(set, str.toCharArray(), 0);
 
-        re.addAll(set);
-        Collections.sort(re);//工具类排序
-        return re;
+        result.addAll(set);
+        Collections.sort(result);//工具类排序
+        return result;
     }
 
-    void fun(HashSet<String> re, char[] str, int k) {
+    void fun(HashSet<String> set, char[] str, int k) {
         if (k == str.length) {
-            re.add(new String(str));
+            set.add(new String(str));
+            System.out.println(new String(str));
             return;
         }
         for (int i = k; i < str.length; i++) {
             swap(str, i, k);
 
-            fun(re, str, k + 1);
+            fun(set, str, k + 1);
 
             swap(str, i, k);
         }

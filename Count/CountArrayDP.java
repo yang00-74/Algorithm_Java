@@ -39,7 +39,7 @@ public class CountArrayDP {
         left[0] = 0;  
         int min = prices[0];  // 最低买入价  
         //int[] prices = {2,2,3,4,8,2,6};
-        // 左边递推公式  
+        // 左边递推公式，最低买入价获取的利润数组
         for(int i=1; i<left.length; i++){  
         // i的最大利润为（i-1的利润）和（当前卖出价和之前最小买入价之差）的较大那个
         	left[i] = Math.max(left[i-1], prices[i]-min);     
@@ -48,7 +48,7 @@ public class CountArrayDP {
           
         right[right.length-1] = 0;    // 最高卖出价  
         int max = prices[right.length-1];     
-        // 右边递推公式  
+        // 右边递推公式，最高卖出价格获取的利润数组
         for(int i=right.length-2; i>=0; i--){  
        // i的最大利润为（i+1的利润）和（最高卖出价和当前买入价之差）的较大那个  
         	right[i] = Math.max(right[i+1], max-prices[i]); 

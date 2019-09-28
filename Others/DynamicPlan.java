@@ -12,7 +12,7 @@ public class DynamicPlan {
         int[] weights = {1, 2, 3, 4};
         int[] values = {2, 4, 3, 6};
 
-        System.out.println("The max value:" + dp.knapsack(4, weights, values));
+        System.out.println("The max value:" + dp.knapsack(6, weights, values));
 //        dp.spiltArray(0,5);
 //        dp.canPartition(new int[]{1,2,5,6});
 //        dp.coinChange(new int[]{3, 4, 5}, 12);
@@ -61,9 +61,13 @@ public class DynamicPlan {
             for (int j = W; j >= 1; j--) { // 0-1 背包问题一维数组表示需逆序遍历,否则之前的计算结果会对之后的结果造成影响
                 if (j >= w) {
                     dp[j] = Math.max(dp[j], dp[j - w] + v);
-                    System.out.println("dp[" + j + "]:" + dp[j] + " dp[" + (j - w) + "]:" + dp[j - w]);
+
                 }
             }
+            for(int j =0; j<= W;j++) {
+                System.out.print("dp[" + j + "]:" + dp[j] +" ");
+            }
+            System.out.println();
         }
         return dp[W];
     }
@@ -137,6 +141,9 @@ public class DynamicPlan {
                     dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
 
+
+            }
+            for (int i = 0; i <= amount;i++) {
                 System.out.print("dp[" + i + "]:" + dp[i] + " ");
             }
             System.out.println();

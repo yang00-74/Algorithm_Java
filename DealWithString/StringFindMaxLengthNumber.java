@@ -13,6 +13,9 @@ public class StringFindMaxLengthNumber {
         System.out.println(s1);
     }
 
+    /**
+     * 找出字符串中长度最长的连续数字序列
+     * */
     public static String findMaxLength(String s) {
         if (null == s && s.length() <= 0) return "";
         int count = 0;

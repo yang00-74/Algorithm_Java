@@ -10,6 +10,7 @@ public class StringROL {
 
     public static void main(String[] args) {
         String str = "abcdef";
+        // 队列变化：fedcba-> cbafed-> defabc
         System.out.println(new StringROL().LeftRotateString(str, 3));
     }
 
@@ -32,5 +33,11 @@ public class StringROL {
             sb.append((char) q.poll());
         }
         return sb.toString();
+    }
+
+    public boolean rotateString(String A, String B) {
+        if (A.length() != B.length()) return false;
+        A = A + A;
+        return A.contains(B);
     }
 }

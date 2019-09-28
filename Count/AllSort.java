@@ -76,7 +76,46 @@ public class AllSort {
 
     }
 
-
+	// 冒泡排序，最好时间为 O（n）,最大的冒到数组末尾
+	public void bubbleSort(int a[]) {
+		int length = a.length;
+		for (int i = 0; i < length - 1; i++) {
+			for (int j = 0; j < length - 1 - i; j++) {
+				if (a[j] > a[j + 1]) {
+					swap(a, j, j+1);
+				}
+			}
+		}
+	}
+	
+	//插入排序，类似抓牌排序
+	public void insertSort(int a[]) {
+		for (int i = 0;i <a.length;i++) {
+			int get = a[i]; // 默认 a[0]为排序好的元素
+			int j = i-1;
+			while (j >= 0 && a[j] >get) {// a[i] 需要往有序序列插入，序列中大于 get 的元素需往后移动，挪出位置
+				a[j+1]= a[j];
+				j--;
+			}
+			a[j+1] = get;
+		}
+	}
+	
+	//选择排序，每次选择最小值放到数组已排序的末尾
+	public void selectSort(int a[]) {
+		for (int i = 0; i < a.length - 1; i++) {
+			int minIndex = i;
+			for (int j = i + 1; j < a.length; j++) {
+				if (a[j] < a[i]) {
+					minIndex = j;
+				}
+			}
+			if (minIndex != i) {
+				swap(a, minIndex, i);
+			}
+		}
+	}
+    
     //快排
     public void QuickSort(int a[], int left, int right) {
         int i, j;
@@ -96,9 +135,9 @@ public class AllSort {
         }
     }
 
-    private void swap(int a[], int i, int j) {
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
+    private void swap(int a[], int current, int target) {
+        int temp = a[current];
+        a[current] = a[target];
+        a[target] = temp;
     }
 }

@@ -4,15 +4,15 @@ public class CountIntSplit {
 
     public static void main(String[] args) {
 //		new CountIntSplit().FindContinueSequence(10);
-        new CountIntSplit().DFS(1);
+        new CountIntSplit().DFS(1,4);
     }
 
     int s[] = new int[100];//存储序列的数组
     int count = 0;//序列中数的存储个数
-    int sum = 0, n = 4;
+    int sum = 0;
 
 
-    public void DFS(int index) {
+    public void DFS(int index, int n) {
 
         if (sum == n) {
             for (int i = 0; i <= count - 1; i++) {
@@ -29,7 +29,7 @@ public class CountIntSplit {
             sum += i;
             s[count++] = i; // 解空间记录
             System.out.println("DFS: " + i + ", s[] index: " + count);
-            DFS(i);
+            DFS(i,n);
             sum -= i;
             s[--count] = 0;//回退数组下标,返回上一层
         }
