@@ -1,4 +1,3 @@
-package Count;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,7 +17,7 @@ public class CountHuiWenNumber {
     }
 
     public static void main(String[] args) {
-        //ÊäÈëÒªÇóµÄÊı£¬ÒÔ0Îª½áÊø
+        //è¾“å…¥è¦æ±‚çš„æ•°ï¼Œä»¥0ä¸ºç»“æŸ
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> list = new ArrayList();
 

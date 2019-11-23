@@ -1,14 +1,9 @@
-package Others;
-
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 /**
  * @author Ye.Yang
  * @date 19-7-25 下午2:26
  **/
-public class DealArray extends DynamicPlan{
+public class DealArray extends DynamicPlan {
 
     @Override
     public boolean canPartition(int[] nums) {

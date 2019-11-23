@@ -1,7 +1,6 @@
-package DealWithString;
 
 /**
- * °ÑÊäÈëµÄ´ø·ûºÅ×Ö·û´®×ª»¯ÎªintÕûÊı
+ * æŠŠè¾“å…¥çš„å¸¦ç¬¦å·å­—ç¬¦ä¸²è½¬åŒ–ä¸ºintæ•´æ•°
  *
  * @author Administrator
  */
@@ -31,7 +30,7 @@ public class String2Int {
                 return 0;
             }
 
-            INT = INT * 10 + c[i] - 48;//×ª»»³ÉintÊı
+            INT = INT * 10 + c[i] - 48;//è½¬æ¢æˆintæ•°
         }
 
         return huhao == -1 ? INT * -1 : INT;

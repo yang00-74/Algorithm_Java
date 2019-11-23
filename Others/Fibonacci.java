@@ -1,14 +1,13 @@
-package Others;
 
 public class Fibonacci {
 
 	/**
-	 *  ì³²¨ÄÇÆõÊıÁĞÎÊÌâ
-	 * 1.Êı×éÊµÏÖ  1 1 2 3 5 8 13....
+	 *  æ–æ³¢é‚£å¥‘æ•°åˆ—é—®é¢˜
+	 * 1.æ•°ç»„å®ç°  1 1 2 3 5 8 13....
 	 *   a[0]=1,a[1]=1;
 	 *   a[x>=2]=a[x-1]+a[x-2];
 	 * 
-	 * 2.±äÁ¿±ä»¯ÊµÏÖ      a   b
+	 * 2.å˜é‡å˜åŒ–å®ç°      a   b
 	 *                 1   1
 	 *                 1   2
 	 *                 2   3
@@ -18,11 +17,11 @@ public class Fibonacci {
 	 *   tem=a;
 	 *   a=b;
 	 *   b=b+tem;
-	 * 3.µİ¹éÊµÏÖ
+	 * 3.é€’å½’å®ç°
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-               System.out.println("µÚ¶şÊ®¸öÊıÊÇ£º"+fib(20));
+               System.out.println("ç¬¬äºŒåä¸ªæ•°æ˜¯ï¼š"+fib(20));
              
 	}
     public static int fib(int n){

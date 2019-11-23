@@ -1,12 +1,11 @@
-package DealWithString;
 
 import java.util.Scanner;
 
 public class StringUnzip {
     /**
-     * ÅĞ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÊÇÑ¹Ëõ¹ıµÄ£¬Èç¹ûÊÇ£¬Êä³ö½âÑ¹ºóµÄ×Ö·û´®
-     * ÊäÈë£º3klk4h(ÏàÍ¬×Ö·ûÁ¬Ğø³öÏÖ3´ÎÊä³ö´íÎó)
-     * Êä³ö£ºkkklkhhhh
+     * åˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯å‹ç¼©è¿‡çš„ï¼Œå¦‚æœæ˜¯ï¼Œè¾“å‡ºè§£å‹åçš„å­—ç¬¦ä¸²
+     * è¾“å…¥ï¼š3klk4h(ç›¸åŒå­—ç¬¦è¿ç»­å‡ºç°3æ¬¡è¾“å‡ºé”™è¯¯)
+     * è¾“å‡ºï¼škkklkhhhh
      */
     public static String output;
 
@@ -26,13 +25,13 @@ public class StringUnzip {
             int len = input.length();
             char[] b = input.toCharArray();
             StringBuilder sb = new StringBuilder();
-            //¸ø±ê¼ÇÊı×é¸³Öµ
+            //ç»™æ ‡è®°æ•°ç»„èµ‹å€¼
             int[] count = new int[len];
             for (int j = 0; j < len; j++) {
                 count[j] = 1;
             }
 
-            //¼ì²éÊäÈë¸ñÊ½ÊÇ·ñºÏ·¨
+            //æ£€æŸ¥è¾“å…¥æ ¼å¼æ˜¯å¦åˆæ³•
             for (int k = 1; k < len; k++) {
                 if (b[k - 1] == b[k]) {
                     count[k] = count[k - 1] + count[k];
@@ -42,7 +41,7 @@ public class StringUnzip {
                     return;
                 }
             }
-            //¼ì²éÊäÈë×Ö·ûÊÇ·ñºÏ·¨
+            //æ£€æŸ¥è¾“å…¥å­—ç¬¦æ˜¯å¦åˆæ³•
             for (int i = 0; i < len; i++) {
                 if (b[i] > 'a' && b[i] < 'z') {
                     sb.append(b[i]);

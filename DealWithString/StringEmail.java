@@ -1,4 +1,3 @@
-package DealWithString;
 
 import java.util.Scanner;
 
@@ -6,18 +5,18 @@ import java.util.Scanner;
 public class StringEmail {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("ÊäÈëÓÊÏä£º");
+        System.out.println("è¾“å…¥é‚®ç®±ï¼š");
         String s1 = sc.nextLine();
         new StringEmail().mail(s1);
     }
 
     public void mail(String s1) {
-        String[] str0 = s1.split("\\.");//¸ù¾İµã·Ö½â×Ö·û´®
+        String[] str0 = s1.split("\\.");//æ ¹æ®ç‚¹åˆ†è§£å­—ç¬¦ä¸²
 
         for (int k = 0; k < str0.length; k++) {
-            String[] str = str0[k].split("\\@");//ÔÙ¸ù¾İ@·Ö½â×Ó×Ö·û´®
+            String[] str = str0[k].split("\\@");//å†æ ¹æ®@åˆ†è§£å­å­—ç¬¦ä¸²
 
-            char[] ch = str[0].toCharArray();//×ª»¯×Ö·û´®Îª×Ö·ûÊı×é½øĞĞ²Ù×÷
+            char[] ch = str[0].toCharArray();//è½¬åŒ–å­—ç¬¦ä¸²ä¸ºå­—ç¬¦æ•°ç»„è¿›è¡Œæ“ä½œ
 
             if (ch.length > 2) {
                 for (int j = ch.length - 1; j > ch.length - 4; j--) {

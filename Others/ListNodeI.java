@@ -1,11 +1,10 @@
-package Others;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * ×Ô¶¨ÒåÊµÏÖÁ´±í
+ * è‡ªå®šä¹‰å®ç°é“¾è¡¨
  */
 
 class ListNode {
@@ -48,21 +47,21 @@ public class ListNodeI {
         }
     }
 
-    //Á´±íÔªËØ³öÏÖÖØ¸´¾ÍÉ¾³ı
+    //é“¾è¡¨å…ƒç´ å‡ºç°é‡å¤å°±åˆ é™¤
     public ListNode deleteDuplication2(ListNode pHead) {
         ListNode result;
         ListNode temp = pHead;
-        ListNode index = new ListNode(1);//index±ÈpHead¶àÒ»¸ö½áµã£¬±éÀúÊ±¿ÉÔÚpHead³öÏÖÏàÍ¬µÄÇ°Ò»½ÚµãÍ£×¡£¬´Ó¶ø´í¿ª
+        ListNode index = new ListNode(1);//indexæ¯”pHeadå¤šä¸€ä¸ªç»“ç‚¹ï¼Œéå†æ—¶å¯åœ¨pHeadå‡ºç°ç›¸åŒçš„å‰ä¸€èŠ‚ç‚¹åœä½ï¼Œä»è€Œé”™å¼€
         index.next = pHead;
 
-        result = index;//¼Ç×¡indexÁ´±íµÄÍ·½áµã
+        result = index;//è®°ä½indexé“¾è¡¨çš„å¤´ç»“ç‚¹
         while (temp != null) {
             if (temp.next != null && temp.next.val == temp.val) {
                 while (temp.next != null && temp.next.val == temp.val) {
                     temp = temp.next;
                 }
                 temp = temp.next;
-                index.next = temp;//´¦ÀíindexÁ´±í
+                index.next = temp;//å¤„ç†indexé“¾è¡¨
             } else {
                 index = index.next;
                 temp = temp.next;
@@ -72,7 +71,7 @@ public class ListNodeI {
 
     }
 
-    //´òÓ¡Á´±íµ¹ÊıµÚk¸öÔªËØ
+    //æ‰“å°é“¾è¡¨å€’æ•°ç¬¬kä¸ªå…ƒç´ 
     public ListNode FindKthToTail(ListNode head, int k) {
         if (head == null) return null;
         int count = 0;
@@ -90,7 +89,7 @@ public class ListNodeI {
         return p;
     }
 
-    //Á´±í¸´ÖÆ
+    //é“¾è¡¨å¤åˆ¶
     public ListNode Clone(ListNode pHead) {
         if (pHead == null) return null;
         ListNode p = new ListNode(pHead.val);
@@ -101,7 +100,7 @@ public class ListNodeI {
         return p;
     }
 
-    //ºÏ²¢Á½¸öÓĞĞòÁ´±í
+    //åˆå¹¶ä¸¤ä¸ªæœ‰åºé“¾è¡¨
     public ListNode Merge(ListNode list1, ListNode list2) {
         if (list1 == null) return list2;
         if (list2 == null) return list1;
@@ -117,14 +116,14 @@ public class ListNodeI {
         return p;
     }
 
-    //È¥µôÁ´±íÖĞÖØ¸´µÄÔªËØ
+    //å»æ‰é“¾è¡¨ä¸­é‡å¤çš„å…ƒç´ 
     public ListNode deleteDuplication(ListNode pHead) {
         while (pHead != null) {
             ListNode N = new ListNode(0);
             if (pHead.next == null) return pHead;
 
             N = pHead.next;
-            while (pHead.val == N.val) {//ÅĞ¶Ï½áµãÊÇ·ñÓĞÁ¬ĞøÏàµÈ
+            while (pHead.val == N.val) {//åˆ¤æ–­ç»“ç‚¹æ˜¯å¦æœ‰è¿ç»­ç›¸ç­‰
                 N = N.next;
             }
             pHead.next = N;
@@ -133,7 +132,7 @@ public class ListNodeI {
         return pHead;
     }
 
-    //Çó´ø»·Á´±íµÄÈë¿Ú
+    //æ±‚å¸¦ç¯é“¾è¡¨çš„å…¥å£
     public ListNode EntryNodeOfLoop(ListNode pHead) {
         if (pHead == null) return null;
         ListNode p = pHead;
@@ -153,7 +152,7 @@ public class ListNodeI {
         return null;
     }
 
-    //·´×ªÁ´±í
+    //åè½¬é“¾è¡¨
     public ListNode ReverseList(ListNode head) {
         if (head == null) return null;
 
@@ -171,10 +170,10 @@ public class ListNodeI {
     }
 
     /**
-     * Ò»´Î±éÀú·ÃÎÊÁ´±íÖĞ¼ä½Úµã
+     * ä¸€æ¬¡éå†è®¿é—®é“¾è¡¨ä¸­é—´èŠ‚ç‚¹
      *
-     * Ë¼Â·:
-     * ¿ìÂıÖ¸Õë,µ±¿ìÖ¸Õëµ½´ïÁ´±íÎ²²¿Ê±,ÂıÖ¸Õëµ½´ïÁ´±íÖĞ²¿
+     * æ€è·¯:
+     * å¿«æ…¢æŒ‡é’ˆ,å½“å¿«æŒ‡é’ˆåˆ°è¾¾é“¾è¡¨å°¾éƒ¨æ—¶,æ…¢æŒ‡é’ˆåˆ°è¾¾é“¾è¡¨ä¸­éƒ¨
      */
     public ListNode findMidNode(ListNode root) {
         if (root == null) return null;

@@ -1,4 +1,3 @@
-package DealWithString;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -6,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class StringURL {
     public static int getIpFromUrl(String url) {
-        // 1.判断是否为空  
+        // 1.鍒ゆ柇鏄惁涓虹┖  
         if (url == null || url.trim().equals("")) {
             return -1;
         }
@@ -22,10 +21,10 @@ public class StringURL {
     }
 
     /**
-     * 从url中分析出hostIP:PORT<br/>
+     * 浠巙rl涓垎鏋愬嚭hostIP:PORT<br/>
      */
     public static int getIpPortFromUrl(String url) {
-        // 1.判断是否为空  
+        // 1.鍒ゆ柇鏄惁涓虹┖  
         if (url == null || url.trim().equals("")) {
             return -1;
         }
@@ -37,7 +36,7 @@ public class StringURL {
             host = matcher.group();
         }
 
-        // 如果  
+        // 濡傛灉  
         if (host.contains(":") == false) {
             return -1;
         }

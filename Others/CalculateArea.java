@@ -1,7 +1,4 @@
-package Others;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -32,7 +29,7 @@ public class CalculateArea {
         list.add(e);
         list.add(f);
 
-        System.out.println("Ãæ»ıÊÇ£º" + c.calculatePolygonArea(list));
+        System.out.println("é¢ç§¯æ˜¯ï¼š" + c.calculatePolygonArea(list));
 
         for (Point p : list) {
             System.out.println("x:" + p.x + " y:" + p.y);

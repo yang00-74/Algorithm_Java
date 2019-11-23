@@ -1,10 +1,9 @@
-package DealWithString;
 
 import java.util.Comparator;
 import java.util.Arrays;
 
 /**
- * 用数组中的元素组成一个最小的整数
+ * 鐢ㄦ暟缁勪腑鐨勫厓绱犵粍鎴愪竴涓渶灏忕殑鏁存暟
  *
  * @author Administrator
  */
@@ -23,13 +22,13 @@ public class StringSort {
         for (int i = 0; i < len; i++) {
             str[i] = String.valueOf(numbers[i]);
         }
-        Arrays.sort(str, new Comparator<String>() {//重写排序规则
+        Arrays.sort(str, new Comparator<String>() {//閲嶅啓鎺掑簭瑙勫垯
             @Override
             public int compare(String s1, String s2) {
                 String c1 = s1 + s2;
                 String c2 = s2 + s1;
                 return c1.compareTo(c2);
-//              return c2.compareTo(c1);//从大到小
+//              return c2.compareTo(c1);//浠庡ぇ鍒板皬
             }
         });
         for (int i = 0; i < len; i++) {

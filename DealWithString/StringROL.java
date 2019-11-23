@@ -1,4 +1,3 @@
-package DealWithString;
 
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -11,12 +10,13 @@ public class StringROL {
     public static void main(String[] args) {
         String str = "abcdef";
         // 队列变化：fedcba-> cbafed-> defabc
-        System.out.println(new StringROL().LeftRotateString(str, 3));
+        System.out.println(new StringROL().leftRotateString(str, 3));
     }
 
-    public String LeftRotateString(String str, int n) {
-        if (str.length() == 0 || n == 0) return str;
-
+    public String leftRotateString(String str, int n) {
+        if (str.length() == 0 || n == 0 || str.length() < n) {
+            return str;
+        }
         Queue q = new ArrayBlockingQueue(str.length());
 
         char[] a = str.toCharArray();

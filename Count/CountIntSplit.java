@@ -1,4 +1,3 @@
-package Count;
 
 public class CountIntSplit {
 
@@ -7,8 +6,8 @@ public class CountIntSplit {
         new CountIntSplit().DFS(1,4);
     }
 
-    int s[] = new int[100];//´æ´¢ĞòÁĞµÄÊı×é
-    int count = 0;//ĞòÁĞÖĞÊıµÄ´æ´¢¸öÊı
+    int s[] = new int[100];//å­˜å‚¨åºåˆ—çš„æ•°ç»„
+    int count = 0;//åºåˆ—ä¸­æ•°çš„å­˜å‚¨ä¸ªæ•°
     int sum = 0;
 
 
@@ -27,16 +26,16 @@ public class CountIntSplit {
         if (sum > n) return;
         for (int i = index; i <= n; i++) {
             sum += i;
-            s[count++] = i; // ½â¿Õ¼ä¼ÇÂ¼
+            s[count++] = i; // è§£ç©ºé—´è®°å½•
             System.out.println("DFS: " + i + ", s[] index: " + count);
             DFS(i,n);
             sum -= i;
-            s[--count] = 0;//»ØÍËÊı×éÏÂ±ê,·µ»ØÉÏÒ»²ã
+            s[--count] = 0;//å›é€€æ•°ç»„ä¸‹æ ‡,è¿”å›ä¸Šä¸€å±‚
         }
 
     }
 
-    //Êä³öËùÓĞÁ¬ĞøÏà¼ÓµÈÓÚnµÄĞòÁĞ
+    //è¾“å‡ºæ‰€æœ‰è¿ç»­ç›¸åŠ ç­‰äºnçš„åºåˆ—
     public void FindContinueSequence(int n) {
 
         for (int i = 1; i <= n / 2; i++) {
@@ -46,7 +45,7 @@ public class CountIntSplit {
                 if (sum > n) {
                     break;
                 } else if (sum == n) {
-                    for (int k = i; k <= j; k++) {//Á¬ĞøÕûÊı£¬¹Ê¿É±éÀú
+                    for (int k = i; k <= j; k++) {//è¿ç»­æ•´æ•°ï¼Œæ•…å¯éå†
                         if (k == j) {
                             System.out.println(k);
                         } else {

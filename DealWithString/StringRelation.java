@@ -1,4 +1,3 @@
-package DealWithString;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,7 +10,7 @@ import java.util.Set;
 public class StringRelation {
 
 	/**
-	 * ½¨Á¢Á´±íÀ´È·¶¨¸÷¸ö½Úµã»¥ÏàµÄÒÀÀµ¹ØÏµ
+	 * å»ºç«‹é“¾è¡¨æ¥ç¡®å®šå„ä¸ªèŠ‚ç‚¹äº’ç›¸çš„ä¾èµ–å…³ç³»
 	 * */
 	public class Node{
 		public int currentCatgroy;
@@ -29,13 +28,13 @@ public class StringRelation {
 
 	}
   public static void main(String[] args) {
-   System.out.println("ÇëÊäÈë£¨¸ñÊ½ :1,a,0£©");
+   System.out.println("è¯·è¾“å…¥ï¼ˆæ ¼å¼ :1,a,0ï¼‰");
    Scanner sc=new Scanner(System.in);
    String s=sc.nextLine();
 
    //1,a,0;2,b,1;3,c,2;4,d,2;5,f,3;
 
-   String[] str0=s.split(";");//·Ö½â×Ö·û´®
+   String[] str0=s.split(";");//åˆ†è§£å­—ç¬¦ä¸²
    int len=str0.length ;
    if(len<3){
 	   System.out.println("incorrect data");
@@ -44,25 +43,25 @@ public class StringRelation {
 
    List<char[]> list=new ArrayList();
    for(int i=0;i<len;i++){
-	   char c[]=str0[i].toCharArray();//°Ñ·Ö½âµÃµ½µÄ×Ö·û´®×ª»¯³É×Ö·ûÊı×é´æÓÚlistÖĞ
+	   char c[]=str0[i].toCharArray();//æŠŠåˆ†è§£å¾—åˆ°çš„å­—ç¬¦ä¸²è½¬åŒ–æˆå­—ç¬¦æ•°ç»„å­˜äºlistä¸­
 	   list.add(c);
    }
 
-   LinkedList list0=new LinkedList();//list0´æ´¢³ÉÒÀÀµ¹ØÏµµÄ×Ö·û
-   List<char[]> listz=new ArrayList();//listZ´æ´¢È«²¿ÓĞÒÀÀµ¹ØÏµµÄ×Ö·ûÊı×é
+   LinkedList list0=new LinkedList();//list0å­˜å‚¨æˆä¾èµ–å…³ç³»çš„å­—ç¬¦
+   List<char[]> listz=new ArrayList();//listZå­˜å‚¨å…¨éƒ¨æœ‰ä¾èµ–å…³ç³»çš„å­—ç¬¦æ•°ç»„
 
    int flag=list.size();
    while(flag >1){
 	   int n=flag;
 
-	   for(int i=n-1;i>=0;i--){//´ÓºóÍùÇ°±éÀúÕÒÒÀÀµ¹ØÏµ
-		  char[] b=list.get(i); //»ñÈ¡Òª´¦ÀíµÄ×Ö·ûÊı×é //1,a,0;
+	   for(int i=n-1;i>=0;i--){//ä»åå¾€å‰éå†æ‰¾ä¾èµ–å…³ç³»
+		  char[] b=list.get(i); //è·å–è¦å¤„ç†çš„å­—ç¬¦æ•°ç»„ //1,a,0;
 		  if(!list0.contains(b[2])){
 			  list0.add(b[2]);
 		  }
 
 		  for(int j=i-1;j>=0;j--){
-			   char[] a=list.get(j);//»ñÈ¡Òª´¦ÀíµÄ×Ö·ûÊı×é //ÀıÈç£º1,a,0;
+			   char[] a=list.get(j);//è·å–è¦å¤„ç†çš„å­—ç¬¦æ•°ç»„ //ä¾‹å¦‚ï¼š1,a,0;
 			   if(a[0]==b[4]){
 				   list0.add(a[2]);
 				   i=j;
@@ -70,32 +69,32 @@ public class StringRelation {
 			   }
 		   }
 		 }
-           //²»ÄÜÖ±½Ó½«list0´æÈëlistz£¬ÒòÎªËüÊÇÒıÓÃ£¬»á±»ºóĞøµÄÒÀÀµ×Ö·û¸Ä±äÖµ
+           //ä¸èƒ½ç›´æ¥å°†list0å­˜å…¥listzï¼Œå› ä¸ºå®ƒæ˜¯å¼•ç”¨ï¼Œä¼šè¢«åç»­çš„ä¾èµ–å­—ç¬¦æ”¹å˜å€¼
 	       char[] ca=new char[list0.size()];
-	       for(int i=0;i<list0.size();i++){//°Ñ»ñµÃµÄÓĞÒÀÀµ¹ØÏµµÄ×Ö·ûÈ¡³ö´æÈë×Ö·ûÊı×é
+	       for(int i=0;i<list0.size();i++){//æŠŠè·å¾—çš„æœ‰ä¾èµ–å…³ç³»çš„å­—ç¬¦å–å‡ºå­˜å…¥å­—ç¬¦æ•°ç»„
 	          ca[i]=(char) list0.get(i);
 	       }
-           listz.add(ca);//°Ñ¸Ã×Ö·ûÊı×é´æÈëlistzÖĞ
-	       list0.clear();//Çå¿Õlist0£¬ÒÔ±ã´æ´¢ÏÂÒ»ÂÖ·ûºÏÌõ¼şµÄ×Ö·û
+           listz.add(ca);//æŠŠè¯¥å­—ç¬¦æ•°ç»„å­˜å…¥listzä¸­
+	       list0.clear();//æ¸…ç©ºlist0ï¼Œä»¥ä¾¿å­˜å‚¨ä¸‹ä¸€è½®ç¬¦åˆæ¡ä»¶çš„å­—ç¬¦
 
-	   flag--;//Ò»ÂÖ²éÕÒÍê±Ï
+	   flag--;//ä¸€è½®æŸ¥æ‰¾å®Œæ¯•
    }
 
- //ÒòÎªÒªÊä³öËùÓĞ·ûºÏÌõ¼şÒÀÀµ¹ØÏµ£¬¹ÊĞèÈ¡³ölistzÖĞÊı¾İ½øĞĞ´¦Àí
+ //å› ä¸ºè¦è¾“å‡ºæ‰€æœ‰ç¬¦åˆæ¡ä»¶ä¾èµ–å…³ç³»ï¼Œæ•…éœ€å–å‡ºlistzä¸­æ•°æ®è¿›è¡Œå¤„ç†
 	  String[] st = new String[listz.size()];
 	  for (int k = 0; k < listz.size();k++){
-	   char[] h=listz.get(k);//È¡³öÒ»¸öÒÀÀµ×Ö·ûÊı×é
-	   StringBuilder sb=new StringBuilder(); //½«Æä×ª»¯Îª×Ö·û´®
+	   char[] h=listz.get(k);//å–å‡ºä¸€ä¸ªä¾èµ–å­—ç¬¦æ•°ç»„
+	   StringBuilder sb=new StringBuilder(); //å°†å…¶è½¬åŒ–ä¸ºå­—ç¬¦ä¸²
 	   for(int j=h.length-1;j>=0;j--){
 		  sb.append(h[j]+"-");
 	   }
-	   st[k]=sb.substring(0, sb.length()-1);//×ª»¯ºóµÄ×Ö·û´®·ÅÈë×Ö·û´®Êı×éÖĞ
+	   st[k]=sb.substring(0, sb.length()-1);//è½¬åŒ–åçš„å­—ç¬¦ä¸²æ”¾å…¥å­—ç¬¦ä¸²æ•°ç»„ä¸­
    }
 
    for(int x=0;x<st.length;x++){
 	   for(int y=0;y<st.length;y++){
 		   if(st[x].startsWith(st[y])&& x!=y){
-			   st[y]="";//½«ÆäÖĞ²»·ûºÏÌõ¼şµÄ³ıÈ¥ ,Èç abcf´æÔÚ£¬Ôòabc²»·ûºÏÌõ¼ş
+			   st[y]="";//å°†å…¶ä¸­ä¸ç¬¦åˆæ¡ä»¶çš„é™¤å» ,å¦‚ abcfå­˜åœ¨ï¼Œåˆ™abcä¸ç¬¦åˆæ¡ä»¶
 		   }
 	   }
    }

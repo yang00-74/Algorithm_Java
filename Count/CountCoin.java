@@ -1,4 +1,3 @@
-package Count;
 
 import java.util.Scanner;
 
@@ -6,14 +5,14 @@ public class CountCoin {
 
     public static void main(String[] args) {
 
-//		System.out.println("ÊäÈëÓ²±ÒÊıÁ¿Êı×é£¨¿Õ¸ñ·Ö¸ô£©£º");
+//		System.out.println("è¾“å…¥ç¡¬å¸æ•°é‡æ•°ç»„ï¼ˆç©ºæ ¼åˆ†éš”ï¼‰ï¼š");
         Scanner sc0 = new Scanner(System.in);
         String s = sc0.nextLine();
 
 
         String str[] = s.split(" ");
         if (str.length != 7) {
-            System.out.println("ÊäÈë²»ºÏ·¨£¬ÇëÒÔ¿Õ¸ñ·Ö¸ô");
+            System.out.println("è¾“å…¥ä¸åˆæ³•ï¼Œè¯·ä»¥ç©ºæ ¼åˆ†éš”");
             return;
         }
 

@@ -1,4 +1,3 @@
-package Others;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -6,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 /**
- * ×Ô¶¨ÒåÊµÏÖ¶ş²æÊ÷
+ * è‡ªå®šä¹‰å®ç°äºŒå‰æ ‘
  */
 
 class TreeNode {
@@ -44,10 +43,10 @@ public class TreeNodeI {
 
         System.out.println(t.IsBalance(root));
         System.out.println(t.KthNode(root, 4).val);
-        System.out.println(t.isSymmetrical(root));//ÅĞ¶Ï¶ş²æÊ÷ÊÇ·ñ¶Ô³Æ
+        System.out.println(t.isSymmetrical(root));//åˆ¤æ–­äºŒå‰æ ‘æ˜¯å¦å¯¹ç§°
 
-        String s = t.Serialize(root);//ĞòÁĞ»¯
-        t.desSerialize(s);//·´ĞòÁĞ»¯
+        String s = t.Serialize(root);//åºåˆ—åŒ–
+        t.desSerialize(s);//ååºåˆ—åŒ–
 
         list = t.FindPath(root, 6);
         System.out.println(list.toString());
@@ -55,27 +54,27 @@ public class TreeNodeI {
         t.orderWithRecursive(root,3);
     }
 
-    //¶ş²æËÑË÷Ê÷×ª»¯ÎªÓĞĞòµÄË«ÏòÁ´±í
+    //äºŒå‰æœç´¢æ ‘è½¬åŒ–ä¸ºæœ‰åºçš„åŒå‘é“¾è¡¨
     public TreeNode Convert(TreeNode root) {
         if (root == null)
             return null;
         if (root.left == null && root.right == null)
             return root;
-        // 1.½«×ó×ÓÊ÷¹¹Ôì³ÉË«Á´±í£¬²¢·µ»ØÁ´±íÍ·½Úµã
+        // 1.å°†å·¦å­æ ‘æ„é€ æˆåŒé“¾è¡¨ï¼Œå¹¶è¿”å›é“¾è¡¨å¤´èŠ‚ç‚¹
         TreeNode left = Convert(root.left);
         TreeNode p = left;
-        // 2.¶¨Î»ÖÁ×ó×ÓÊ÷Ë«Á´±í×îºóÒ»¸ö½Úµã
+        // 2.å®šä½è‡³å·¦å­æ ‘åŒé“¾è¡¨æœ€åä¸€ä¸ªèŠ‚ç‚¹
         while (p != null && p.right != null) {
             p = p.right;
         }
-        // 3.Èç¹û×ó×ÓÊ÷Á´±í²»Îª¿ÕµÄ»°£¬½«µ±Ç°root×·¼Óµ½×ó×ÓÊ÷Á´±í
+        // 3.å¦‚æœå·¦å­æ ‘é“¾è¡¨ä¸ä¸ºç©ºçš„è¯ï¼Œå°†å½“å‰rootè¿½åŠ åˆ°å·¦å­æ ‘é“¾è¡¨
         if (left != null) {
             p.right = root;
             root.left = p;
         }
-        // 4.½«ÓÒ×ÓÊ÷¹¹Ôì³ÉË«Á´±í£¬²¢·µ»ØÁ´±íÍ·½Úµã
+        // 4.å°†å³å­æ ‘æ„é€ æˆåŒé“¾è¡¨ï¼Œå¹¶è¿”å›é“¾è¡¨å¤´èŠ‚ç‚¹
         TreeNode right = Convert(root.right);
-        // 5.Èç¹ûÓÒ×ÓÊ÷Á´±í²»Îª¿ÕµÄ»°£¬½«¸ÃÁ´±í×·¼Óµ½root½ÚµãÖ®ºó
+        // 5.å¦‚æœå³å­æ ‘é“¾è¡¨ä¸ä¸ºç©ºçš„è¯ï¼Œå°†è¯¥é“¾è¡¨è¿½åŠ åˆ°rootèŠ‚ç‚¹ä¹‹å
         if (right != null) {
             right.left = root;
             root.right = right;
@@ -83,7 +82,7 @@ public class TreeNodeI {
         return left != null ? left : root;
     }
 
-    //Ä¿±êºÍÎªtargetµÄÂ·¾¶(»ØËİ·¨)
+    //ç›®æ ‡å’Œä¸ºtargetçš„è·¯å¾„(å›æº¯æ³•)
     private ArrayList<ArrayList<Integer>> listAll = new ArrayList();
     private ArrayList<Integer> list = new ArrayList();
 
@@ -101,7 +100,7 @@ public class TreeNodeI {
         return listAll;
     }
 
-    //ĞòÁĞ»¯¶ş²æÊ÷
+    //åºåˆ—åŒ–äºŒå‰æ ‘
     public String Serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         if (root == null) {
@@ -114,7 +113,7 @@ public class TreeNodeI {
         return sb.toString();
     }
 
-    //·´ĞòÁĞ»¯¶ş²æÊ÷
+    //ååºåˆ—åŒ–äºŒå‰æ ‘
     int index = -1;
 
     public TreeNode desSerialize(String str) {
@@ -129,7 +128,7 @@ public class TreeNodeI {
         return node;
     }
 
-    //ÅĞ¶Ï¶ş²æÊ÷ÊÇ·ñ¶Ô³Æ
+    //åˆ¤æ–­äºŒå‰æ ‘æ˜¯å¦å¯¹ç§°
     public boolean isSymmetrical(TreeNode root) {
         if (root == null) return true;
         return compareTree(root.left, root.right);
@@ -139,12 +138,12 @@ public class TreeNodeI {
         if (left == null) return right == null;
         if (right == null) return false;
         if (left.val != right.val) return false;
-        //±È½Ï¶Ô³ÆµÄ×ÓÊ÷
+        //æ¯”è¾ƒå¯¹ç§°çš„å­æ ‘
         return compareTree(left.left, right.right)
                 && compareTree(left.right, right.left);
     }
 
-    //²éÕÒ¶ş²æËÑË÷Ê÷µÄµÚK´óµÄ½áµã
+    //æŸ¥æ‰¾äºŒå‰æœç´¢æ ‘çš„ç¬¬Kå°çš„ç»“ç‚¹
     public TreeNode KthNode(TreeNode root, int k) {
         int count = 0;
         if (root == null || k < count) return null;
@@ -160,14 +159,14 @@ public class TreeNodeI {
             TreeNode node = LDRStack.pop();
             count++;
             if (count == k) return node;
-            p = node.right;//×ó½áµãÍê±Ï£¬±éÀúÓÒ½áµã
+            p = node.right;//å·¦ç»“ç‚¹å®Œæ¯•ï¼Œéå†å³ç»“ç‚¹
 
         }
         return null;
     }
 
 
-    //²ã´Î±éÀú¶ş²æÊ÷£¬´òÓ¡Ã¿Ò»²ã
+    //å±‚æ¬¡éå†äºŒå‰æ ‘ï¼Œæ‰“å°æ¯ä¸€å±‚
     public ArrayList<ArrayList<Integer>> PrintLevelOrder(TreeNode root) {
 
         ArrayList<ArrayList<Integer>> ret = new ArrayList();
@@ -177,7 +176,7 @@ public class TreeNodeI {
         if (root == null) return ret;
         q.add(root);
 
-        int now = 1, next = 0;//µ±Ç°²ã´Î½áµãÊınowºÍÏÂÒ»²ã´Î½áµãÊınext
+        int now = 1, next = 0;//å½“å‰å±‚æ¬¡ç»“ç‚¹æ•°nowå’Œä¸‹ä¸€å±‚æ¬¡ç»“ç‚¹æ•°next
 
         while (!q.isEmpty()) {
             TreeNode t = q.remove();
@@ -203,20 +202,20 @@ public class TreeNodeI {
         return ret;
     }
 
-    //ÅĞ¶ÏÒ»¿ÃÊ÷°üº¬ÁíÒ»¿ÃÊ÷
+    //åˆ¤æ–­ä¸€æ£µæ ‘åŒ…å«å¦ä¸€æ£µæ ‘
     public static boolean HasSubtree(TreeNode root1, TreeNode root2) {
         boolean result = false;
-        //µ±Tree1ºÍTree2¶¼²»ÎªÁãµÄÊ±ºò£¬²Å½øĞĞ±È½Ï¡£·ñÔòÖ±½Ó·µ»Øfalse
+        //å½“Tree1å’ŒTree2éƒ½ä¸ä¸ºé›¶çš„æ—¶å€™ï¼Œæ‰è¿›è¡Œæ¯”è¾ƒã€‚å¦åˆ™ç›´æ¥è¿”å›false
         if (root2 != null && root1 != null) {
             if (root1.val == root2.val) {
-                //Èç¹û¸ùÏàÍ¬£¬ÒÔÕâ¸ö¸ù½ÚµãÎªÎªÆğµãÅĞ¶ÏÊÇ·ñ°üº¬Tree2
+                //å¦‚æœæ ¹ç›¸åŒï¼Œä»¥è¿™ä¸ªæ ¹èŠ‚ç‚¹ä¸ºä¸ºèµ·ç‚¹åˆ¤æ–­æ˜¯å¦åŒ…å«Tree2
                 result = doesTree1HaveTree2(root1, root2);
             }
-            //Èç¹û¸ù²»Í¬£¬ÄÇÃ´¾ÍÔÙÈ¥rootµÄ×ó¶ù×Óµ±×÷Æğµã£¬È¥ÅĞ¶ÏÊÇ·ñ°üº¬Tree2
+            //å¦‚æœæ ¹ä¸åŒï¼Œé‚£ä¹ˆå°±å†å»rootçš„å·¦å„¿å­å½“ä½œèµ·ç‚¹ï¼Œå»åˆ¤æ–­æ˜¯å¦åŒ…å«Tree2
             if (!result) {
                 result = HasSubtree(root1.left, root2);
             }
-            //Èç¹û»¹ÕÒ²»µ½£¬ÄÇÃ´¾ÍÔÙ½«rootµÄÓÒ¶ù×Óµ±×÷Æğµã£¬È¥ÅĞ¶ÏÊÇ·ñ°üº¬Tree2
+            //å¦‚æœè¿˜æ‰¾ä¸åˆ°ï¼Œé‚£ä¹ˆå°±å†å°†rootçš„å³å„¿å­å½“ä½œèµ·ç‚¹ï¼Œå»åˆ¤æ–­æ˜¯å¦åŒ…å«Tree2
             if (!result) {
                 result = HasSubtree(root1.right, root2);
             }
@@ -226,19 +225,19 @@ public class TreeNodeI {
 
     public static boolean doesTree1HaveTree2(TreeNode node1, TreeNode node2) {
         if (node2 == null) {
-            return true;//Èç¹ûTree2ÒÑ¾­±éÀúÍêÁË¶¼ÄÜ¶ÔÓ¦µÄÉÏ£¬·µ»Øtrue
+            return true;//å¦‚æœTree2å·²ç»éå†å®Œäº†éƒ½èƒ½å¯¹åº”çš„ä¸Šï¼Œè¿”å›true
         }
         if (node1 == null) {
-            return false; //Èç¹ûTree2»¹Ã»ÓĞ±éÀúÍê£¬Tree1È´±éÀúÍêÁË¡£·µ»Øfalse
+            return false; //å¦‚æœTree2è¿˜æ²¡æœ‰éå†å®Œï¼ŒTree1å´éå†å®Œäº†ã€‚è¿”å›false
         }
         if (node1.val != node2.val) {
-            return false; //Èç¹ûÆäÖĞÓĞÒ»¸öµãÃ»ÓĞ¶ÔÓ¦ÉÏ£¬·µ»Øfalse
+            return false; //å¦‚æœå…¶ä¸­æœ‰ä¸€ä¸ªç‚¹æ²¡æœ‰å¯¹åº”ä¸Šï¼Œè¿”å›false
         }
-        //Èç¹û¸ù½Úµã¶ÔÓ¦µÄÉÏ£¬ÄÇÃ´¾Í·Ö±ğÈ¥×Ó½ÚµãÀïÃæÆ¥Åä
+        //å¦‚æœæ ¹èŠ‚ç‚¹å¯¹åº”çš„ä¸Šï¼Œé‚£ä¹ˆå°±åˆ†åˆ«å»å­èŠ‚ç‚¹é‡Œé¢åŒ¹é…
         return doesTree1HaveTree2(node1.left, node2.left) && doesTree1HaveTree2(node1.right, node2.right);
     }
 
-    //ÅĞ¶Ï¶ş²æÊ÷ÊÇ·ñÆ½ºâ£¨×óÓÒ×ÓÊ÷¸ß¶ÈÖ®²îĞ¡ÓÚµÈÓÚ1£©
+    //åˆ¤æ–­äºŒå‰æ ‘æ˜¯å¦å¹³è¡¡ï¼ˆå·¦å³å­æ ‘é«˜åº¦ä¹‹å·®å°äºç­‰äº1ï¼‰
     public static boolean IsBalance(TreeNode root) {
         if (root == null) return true;
         if (Math.abs(getHeight(root.left) - getHeight(root.right)) > 1) {
@@ -248,19 +247,19 @@ public class TreeNodeI {
     }
 
     /**
-     * »ñÈ¡¶ş²æÊ÷ÖĞÁ½¸ö×Ó½ÚµãÏà¾à×î´ó¾àÀë,¿É×ª»»Îª¶ş²æÊ÷Á½×ÓÊ÷¸ß¶ÈÖ®ºÍµÄÎÊÌâ
-     * Note:¸ù½ÚµãÁ½×ÓÊ÷¸ß¶ÈÖ®ºÍ²¢²»Ò»¶¨µÈÓÚÁ½¸ö×Ó½ÚµãÏà¾à×î´ó¾àÀë,´æÔÚÏà¾à×îÔ¶µÄÁ½×Ó½ÚµãÔÚ¸ù½ÚµãÍ¬Ò»×ÓÊ÷ÏÂµÄÇé¿ö,¹ÊĞè±äÁ¿ max ¼ÇÂ¼¸ÃÖµ
+     * è·å–äºŒå‰æ ‘ä¸­ä¸¤ä¸ªå­èŠ‚ç‚¹ç›¸è·æœ€å¤§è·ç¦»,å¯è½¬æ¢ä¸ºäºŒå‰æ ‘ä¸¤å­æ ‘é«˜åº¦ä¹‹å’Œçš„é—®é¢˜
+     * Note:æ ¹èŠ‚ç‚¹ä¸¤å­æ ‘é«˜åº¦ä¹‹å’Œå¹¶ä¸ä¸€å®šç­‰äºä¸¤ä¸ªå­èŠ‚ç‚¹ç›¸è·æœ€å¤§è·ç¦»,å­˜åœ¨ç›¸è·æœ€è¿œçš„ä¸¤å­èŠ‚ç‚¹åœ¨æ ¹èŠ‚ç‚¹åŒä¸€å­æ ‘ä¸‹çš„æƒ…å†µ,æ•…éœ€å˜é‡ max è®°å½•è¯¥å€¼
      *  a                                               a
      * / \                                             / \
-     * b  c (¸ù½Úµã×ÓÊ÷¸ß¶ÈÖ®ºÍ = ×Ó½ÚµãÏà¾à×î´ó¾àÀë)          b   c
+     * b  c (æ ¹èŠ‚ç‚¹å­æ ‘é«˜åº¦ä¹‹å’Œ = å­èŠ‚ç‚¹ç›¸è·æœ€å¤§è·ç¦»)          b   c
      *                                               / \
      *                                              d   e
      *                                              /    \
-     *                                             f     g (¸ù½Úµã×ÓÊ÷¸ß¶ÈÖ®ºÍ < ×Ó½ÚµãÏà¾à×î´ó¾àÀë)
+     *                                             f     g (æ ¹èŠ‚ç‚¹å­æ ‘é«˜åº¦ä¹‹å’Œ < å­èŠ‚ç‚¹ç›¸è·æœ€å¤§è·ç¦»)
      *                                            /       \
      *                                           h        j
      *
-     * @return max È«¾Ö±äÁ¿¼ÇÂ¼×î´ó¾àÀë
+     * @return max å…¨å±€å˜é‡è®°å½•æœ€å¤§è·ç¦»
      */
     public int maxDistanceOfBinaryTree(TreeNode root) {
         getHeight(root);
@@ -269,17 +268,17 @@ public class TreeNodeI {
 
     static int max = 0;
 
-    //»ñÈ¡Ê÷¸ß
+    //è·å–æ ‘é«˜
     private static int getHeight(TreeNode root) {
         if (root == null) return 0;
         int left = getHeight(root.left);
         int right = getHeight(root.right);
-        max = Math.max(max, left + right); // È«¾Ö±äÁ¿¼ÇÂ¼×î´ó¾àÀë
+        max = Math.max(max, left + right); // å…¨å±€å˜é‡è®°å½•æœ€å¤§è·ç¦»
 
         return (left > right) ? left + 1 : right + 1;
     }
 
-    //´ÓÉÏÍùÏÂ´òÓ¡Ê÷,²ã´Î±éÀú
+    //ä»ä¸Šå¾€ä¸‹æ‰“å°æ ‘,å±‚æ¬¡éå†
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         if (root == null) return list;
@@ -295,7 +294,7 @@ public class TreeNodeI {
         return list;
     }
 
-    // Ç°Ğò±éÀú¶ş²æÊ÷, Õ»½á¹¹,½« root Ñ¹Èë,³öÕ»,È»ºó½« ÓÒ×Ó½Úµã ×ó×Ó½ÚµãÑ¹Èë
+    // å‰åºéå†äºŒå‰æ ‘, æ ˆç»“æ„,å°† root å‹å…¥,å‡ºæ ˆ,ç„¶åå°† å³å­èŠ‚ç‚¹ å·¦å­èŠ‚ç‚¹å‹å…¥
     public ArrayList<Integer> preOrder(TreeNode root) {
         if (root == null) return null;
         Stack<TreeNode> stack = new Stack<>();
@@ -315,7 +314,7 @@ public class TreeNodeI {
         return result;
     }
 
-    // ÖĞĞò±éÀú¶ş²æÊ÷,ÏÈ½«×ó½ÚµãÑ¹ÈëÕ»,µ±½ÚµãÎª null,Õ»¶¥ÔªËØ³öÕ»,±éÀú³öÕ»ÔªËØµÄÓÒ½Úµã
+    // ä¸­åºéå†äºŒå‰æ ‘,å…ˆå°†å·¦èŠ‚ç‚¹å‹å…¥æ ˆ,å½“èŠ‚ç‚¹ä¸º null,æ ˆé¡¶å…ƒç´ å‡ºæ ˆ,éå†å‡ºæ ˆå…ƒç´ çš„å³èŠ‚ç‚¹
     public ArrayList inOrder(TreeNode root) {
         if (root == null) return null;
         Stack<TreeNode> stack = new Stack<>();
@@ -334,7 +333,7 @@ public class TreeNodeI {
         return result;
     }
 
-    // ºóĞò±éÀú¶ş²æÊ÷(Éî¶ÈÓÅÏÈ),Á½¸öÕ»ÊµÏÖ
+    // ååºéå†äºŒå‰æ ‘(æ·±åº¦ä¼˜å…ˆ),ä¸¤ä¸ªæ ˆå®ç°
     public ArrayList<Integer> sufOrder(TreeNode root) {
         if (root == null) return null;
         Stack<TreeNode> current = new Stack<>();
@@ -363,10 +362,10 @@ public class TreeNodeI {
     }
 
     /**
-     * µİ¹éÊµÏÖ Ç°ÖĞºó ÈıĞòÁĞ±éÀú
+     * é€’å½’å®ç° å‰ä¸­å ä¸‰åºåˆ—éå†
      *
-     * @param root Ê÷¸ù½Úµã
-     * @param orderMode ±éÀúÄ£Ê½,1:Ç°Ğò  2:ÖĞĞò  3:ºóĞò
+     * @param root æ ‘æ ¹èŠ‚ç‚¹
+     * @param orderMode éå†æ¨¡å¼,1:å‰åº  2:ä¸­åº  3:ååº
      */
     public void orderWithRecursive(TreeNode root, int orderMode) {
         if (root == null) {

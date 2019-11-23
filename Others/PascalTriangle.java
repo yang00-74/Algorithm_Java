@@ -1,6 +1,5 @@
-package Others;
 /**
- * ´òÓ¡Ñî»ÔÈı½Ç
+ * æ‰“å°æ¨è¾‰ä¸‰è§’
  * @author Administrator
  *
  */
@@ -13,7 +12,7 @@ public class PascalTriangle {
           }
          for(int i=2;i<arr.length;i++){
            for(int j=1;j<i;j++)
-                arr[i][j]=arr[i-1][j-1]+arr[i-1][j];//Ñî»ÔÈı½Ç
+                arr[i][j]=arr[i-1][j-1]+arr[i-1][j];//æ¨è¾‰ä¸‰è§’
        }
         for(int i=0;i<arr.length;i++){
         	for(int j=0;j<=i;j++){

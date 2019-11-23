@@ -1,7 +1,6 @@
-package Count;
 
 /**
- * �ҵ������Ķ���������1���ֵĴ���
+ * Count the 1 appears in the given number
  *
  * @author Administrator
  */

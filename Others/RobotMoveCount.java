@@ -1,6 +1,5 @@
-package Others;
 /**
- * »úÆ÷ÈËÃ¿´Î×ßÒ»²½£¬ÇóÆäÔÚx*yµÄ×ø±êÄÚÄÜ´ïµ½µÄ¸ñ×ÓÊı
+ * æœºå™¨äººæ¯æ¬¡èµ°ä¸€æ­¥ï¼Œæ±‚å…¶åœ¨x*yçš„åæ ‡å†…èƒ½è¾¾åˆ°çš„æ ¼å­æ•°
  * @author Administrator
  *
  */
@@ -11,26 +10,26 @@ public class RobotMoveCount {
 	
 	
 	public int moveingCount(int k,int x,int y){
-		if(k<=0) return 0;//ÏÈÅĞ¶ÏkÊÇ·ñºÏ·¨
-		boolean[][] b=new boolean[x][y];//±ê¼ÇÊı×é
-		//³õÊ¼»¯±ê¼ÇÊı×é
+		if(k<=0) return 0;//å…ˆåˆ¤æ–­kæ˜¯å¦åˆæ³•
+		boolean[][] b=new boolean[x][y];//æ ‡è®°æ•°ç»„
+		//åˆå§‹åŒ–æ ‡è®°æ•°ç»„
 		b[0][0]=true;
 		for(int i=1;i<x;i++){
-			if(b[i-1][0]&&canReach(k,i,0)){//Ã¿´ÎÖ»ÄÜÒÆ¶¯Ò»¸ñ£¬¹Êµ½´ïÊ±ÆäÇ°Ò»¸ö±ØĞëµ½´ï
+			if(b[i-1][0]&&canReach(k,i,0)){//æ¯æ¬¡åªèƒ½ç§»åŠ¨ä¸€æ ¼ï¼Œæ•…åˆ°è¾¾æ—¶å…¶å‰ä¸€ä¸ªå¿…é¡»åˆ°è¾¾
 				b[i][0]=true;
 			}else{
 				b[i][0]=false;
 			}
 		}
 		for(int i=1;i<y;i++){
-			if(b[0][i-1]&&canReach(k,0,i)){//Ã¿´ÎÖ»ÄÜÒÆ¶¯Ò»¸ñ£¬¹Êµ½´ïÊ±ÆäÇ°Ò»¸ö±ØĞëµ½´ï
+			if(b[0][i-1]&&canReach(k,0,i)){//æ¯æ¬¡åªèƒ½ç§»åŠ¨ä¸€æ ¼ï¼Œæ•…åˆ°è¾¾æ—¶å…¶å‰ä¸€ä¸ªå¿…é¡»åˆ°è¾¾
 				b[0][i]=true;
 			}else{
 				b[0][i]=false;
 			}
 		}
 		
-		//ÅĞ¶ÏÆä²»ÔÚ×ø±êÖáÉÏµÄ¿É´ï¸ñ×Ó
+		//åˆ¤æ–­å…¶ä¸åœ¨åæ ‡è½´ä¸Šçš„å¯è¾¾æ ¼å­
 		for(int i=1;i<x;i++){
 			for(int j=1;j<y;j++){
 				if(b[i][j-1]&&canReach(k, i, j)||b[i-1][j]&&canReach(k, i, j)){
@@ -41,7 +40,7 @@ public class RobotMoveCount {
 			}
 		}
 		
-		//Í³¼Æ¿É´ïµÄ¸ñ×ÓÊı
+		//ç»Ÿè®¡å¯è¾¾çš„æ ¼å­æ•°
 		int count=0;
 		for(int i=0;i<x;i++){
 			for(int j=0;j<y;j++){

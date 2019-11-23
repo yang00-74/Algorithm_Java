@@ -1,11 +1,6 @@
-package Count;
-
-import java.math.BigInteger;
-import java.net.BindException;
-
 public class CountNumberOf1Between1AndN {
     /**
-     * Í³¼ÆÒ»¶¨·¶Î§ÄÚÈ«²¿ÕûÊıÖĞÊı×Ö1³öÏÖµÄ´ÎÊı
+     * ç»Ÿè®¡ä¸€å®šèŒƒå›´å†…å…¨éƒ¨æ•´æ•°ä¸­æ•°å­—1å‡ºç°çš„æ¬¡æ•°
      *
      * @param args
      */

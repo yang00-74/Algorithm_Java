@@ -1,10 +1,9 @@
-package Count;
 
 import java.util.Arrays;
 
 /**
- * Êı×éÄ£Äâ¹ÉÆ±ÂòÂô£¬²Ù×÷Á½´Î£¬ÇóÊÕÒæ×î´ó
- *    »ù±¾Ë¼ÏëÊÇ·Ö³ÉÁ½¸öÊ±¼ä¶Î£¬È»ºó¶ÔÓÚÄ³Ò»Ìì£¬¼ÆËãÖ®Ç°µÄ×î´óÖµºÍÖ®ºóµÄ×î´óÖµ 
+ * æ•°ç»„æ¨¡æ‹Ÿè‚¡ç¥¨ä¹°å–ï¼Œæ“ä½œä¸¤æ¬¡ï¼Œæ±‚æ”¶ç›Šæœ€å¤§
+ *    åŸºæœ¬æ€æƒ³æ˜¯åˆ†æˆä¸¤ä¸ªæ—¶é—´æ®µï¼Œç„¶åå¯¹äºæŸä¸€å¤©ï¼Œè®¡ç®—ä¹‹å‰çš„æœ€å¤§å€¼å’Œä¹‹åçš„æœ€å¤§å€¼ 
  * @author Administrator
  *
  */
@@ -21,13 +20,13 @@ public class CountArrayDP {
         }  
           
         int max = 0;  
-        // dpÊı×é±£´æ×ó±ßºÍÓÒ±ßµÄÀûÈó×î´óÖµ  
-        int[] left = new int[prices.length];     // ¼ÆËã[0,i]Çø¼äµÄ×î´óÖµ  
-        int[] right = new int[prices.length];   // ¼ÆËã[i,len-1]Çø¼äµÄ×î´óÖµ  
+        // dpæ•°ç»„ä¿å­˜å·¦è¾¹å’Œå³è¾¹çš„åˆ©æ¶¦æœ€å¤§å€¼  
+        int[] left = new int[prices.length];     // è®¡ç®—[0,i]åŒºé—´çš„æœ€å¤§å€¼  
+        int[] right = new int[prices.length];   // è®¡ç®—[i,len-1]åŒºé—´çš„æœ€å¤§å€¼  
           
         process(prices, left, right);  
           
-        // O(n)ÕÒµ½×î´óÖµ  
+        // O(n)æ‰¾åˆ°æœ€å¤§å€¼  
         for(int i=0; i<prices.length; i++){  
             max = Math.max(max, left[i]+right[i]);  
         }  
@@ -37,22 +36,22 @@ public class CountArrayDP {
       
     public static void process(int[] prices, int[] left, int[] right){  
         left[0] = 0;  
-        int min = prices[0];  // ×îµÍÂòÈë¼Û  
+        int min = prices[0];  // æœ€ä½ä¹°å…¥ä»·  
         //int[] prices = {2,2,3,4,8,2,6};
-        // ×ó±ßµİÍÆ¹«Ê½£¬×îµÍÂòÈë¼Û»ñÈ¡µÄÀûÈóÊı×é
+        // å·¦è¾¹é€’æ¨å…¬å¼ï¼Œæœ€ä½ä¹°å…¥ä»·è·å–çš„åˆ©æ¶¦æ•°ç»„
         for(int i=1; i<left.length; i++){  
-        // iµÄ×î´óÀûÈóÎª£¨i-1µÄÀûÈó£©ºÍ£¨µ±Ç°Âô³ö¼ÛºÍÖ®Ç°×îĞ¡ÂòÈë¼ÛÖ®²î£©µÄ½Ï´óÄÇ¸ö
+        // içš„æœ€å¤§åˆ©æ¶¦ä¸ºï¼ˆi-1çš„åˆ©æ¶¦ï¼‰å’Œï¼ˆå½“å‰å–å‡ºä»·å’Œä¹‹å‰æœ€å°ä¹°å…¥ä»·ä¹‹å·®ï¼‰çš„è¾ƒå¤§é‚£ä¸ª
         	left[i] = Math.max(left[i-1], prices[i]-min);     
-            min = Math.min(min, prices[i]);     // ¸üĞÂ×îĞ¡ÂòÈë¼Û  
+            min = Math.min(min, prices[i]);     // æ›´æ–°æœ€å°ä¹°å…¥ä»·  
         }  
           
-        right[right.length-1] = 0;    // ×î¸ßÂô³ö¼Û  
+        right[right.length-1] = 0;    // æœ€é«˜å–å‡ºä»·  
         int max = prices[right.length-1];     
-        // ÓÒ±ßµİÍÆ¹«Ê½£¬×î¸ßÂô³ö¼Û¸ñ»ñÈ¡µÄÀûÈóÊı×é
+        // å³è¾¹é€’æ¨å…¬å¼ï¼Œæœ€é«˜å–å‡ºä»·æ ¼è·å–çš„åˆ©æ¶¦æ•°ç»„
         for(int i=right.length-2; i>=0; i--){  
-       // iµÄ×î´óÀûÈóÎª£¨i+1µÄÀûÈó£©ºÍ£¨×î¸ßÂô³ö¼ÛºÍµ±Ç°ÂòÈë¼ÛÖ®²î£©µÄ½Ï´óÄÇ¸ö  
+       // içš„æœ€å¤§åˆ©æ¶¦ä¸ºï¼ˆi+1çš„åˆ©æ¶¦ï¼‰å’Œï¼ˆæœ€é«˜å–å‡ºä»·å’Œå½“å‰ä¹°å…¥ä»·ä¹‹å·®ï¼‰çš„è¾ƒå¤§é‚£ä¸ª  
         	right[i] = Math.max(right[i+1], max-prices[i]); 
-            max = Math.max(max, prices[i]);     // ¸üĞÂ×î¸ßÂô³ö¼Û  
+            max = Math.max(max, prices[i]);     // æ›´æ–°æœ€é«˜å–å‡ºä»·  
         }  
           
       System.out.println(Arrays.toString(left));  

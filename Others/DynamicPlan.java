@@ -1,8 +1,7 @@
-package Others;
 
 /**
  * @author Ye.Yang
- * @date 19-7-8 ÏÂÎç7:24
+ * @date 19-7-8 ä¸‹åˆ7:24
  **/
 public class DynamicPlan {
 
@@ -19,33 +18,33 @@ public class DynamicPlan {
     }
 
     /**
-     * 0-1 Knapsack.Ò»¸öÎïÆ·Ö»ÄÜÓÃÒ»´Î
+     * 0-1 Knapsack.ä¸€ä¸ªç‰©å“åªèƒ½ç”¨ä¸€æ¬¡
      *
-     * ÓĞÒ»¸öÈİÁ¿Îª W µÄ±³°ü£¬ÒªÓÃÕâ¸ö±³°ü×°ÏÂÎïÆ·µÄ¼ÛÖµ×î´ó£¬ÕâĞ©ÎïÆ·ÓĞÁ½¸öÊôĞÔ£ºÌå»ı w ºÍ¼ÛÖµ v¡£
+     * æœ‰ä¸€ä¸ªå®¹é‡ä¸º W çš„èƒŒåŒ…ï¼Œè¦ç”¨è¿™ä¸ªèƒŒåŒ…è£…ä¸‹ç‰©å“çš„ä»·å€¼æœ€å¤§ï¼Œè¿™äº›ç‰©å“æœ‰ä¸¤ä¸ªå±æ€§ï¼šä½“ç§¯ w å’Œä»·å€¼ vã€‚
      *
-     * ¶¨ÒåÒ»¸ö¶şÎ¬Êı×é dp ´æ´¢×î´ó¼ÛÖµ£¬ÆäÖĞ dp[i][j] ±íÊ¾Ç° i ¼şÎïÆ·Ìå»ı²»³¬¹ı j µÄÇé¿öÏÂÄÜ´ïµ½µÄ×î´ó¼ÛÖµ¡£ÉèµÚ i ¼şÎïÆ·Ìå»ıÎª w£¬¼ÛÖµÎª v£¬
-     * ¸ù¾İµÚ i ¼şÎïÆ·ÊÇ·ñÌí¼Óµ½±³°üÖĞ£¬¿ÉÒÔ·ÖÁ½ÖÖÇé¿öÌÖÂÛ£º
+     * å®šä¹‰ä¸€ä¸ªäºŒç»´æ•°ç»„ dp å­˜å‚¨æœ€å¤§ä»·å€¼ï¼Œå…¶ä¸­ dp[i][j] è¡¨ç¤ºå‰ i ä»¶ç‰©å“ä½“ç§¯ä¸è¶…è¿‡ j çš„æƒ…å†µä¸‹èƒ½è¾¾åˆ°çš„æœ€å¤§ä»·å€¼ã€‚è®¾ç¬¬ i ä»¶ç‰©å“ä½“ç§¯ä¸º wï¼Œä»·å€¼ä¸º vï¼Œ
+     * æ ¹æ®ç¬¬ i ä»¶ç‰©å“æ˜¯å¦æ·»åŠ åˆ°èƒŒåŒ…ä¸­ï¼Œå¯ä»¥åˆ†ä¸¤ç§æƒ…å†µè®¨è®ºï¼š
      *
-     * 1.µÚ i ¼şÎïÆ·Ã»Ìí¼Óµ½±³°ü£¬×ÜÌå»ı²»³¬¹ı j µÄÇ° i ¼şÎïÆ·µÄ×î´ó¼ÛÖµ¾ÍÊÇ×ÜÌå»ı²»³¬¹ı j µÄÇ° i-1 ¼şÎïÆ·µÄ×î´ó¼ÛÖµ£¬dp[i][j] = dp[i-1][j]¡£
-     * 2.µÚ i ¼şÎïÆ·Ìí¼Óµ½±³°üÖĞ£¬dp[i][j] = dp[i-1][j-w] + v
+     * 1.ç¬¬ i ä»¶ç‰©å“æ²¡æ·»åŠ åˆ°èƒŒåŒ…ï¼Œæ€»ä½“ç§¯ä¸è¶…è¿‡ j çš„å‰ i ä»¶ç‰©å“çš„æœ€å¤§ä»·å€¼å°±æ˜¯æ€»ä½“ç§¯ä¸è¶…è¿‡ j çš„å‰ i-1 ä»¶ç‰©å“çš„æœ€å¤§ä»·å€¼ï¼Œdp[i][j] = dp[i-1][j]ã€‚
+     * 2.ç¬¬ i ä»¶ç‰©å“æ·»åŠ åˆ°èƒŒåŒ…ä¸­ï¼Œdp[i][j] = dp[i-1][j-w] + v
      *
      * dp[i][j] = max(dp[i-1][j-w] + v,dp[i-1][j])
      **/
 
     /**
-     * @param W       ±³°ü×î´óÌå»ıÈİÁ¿
-     * @param weights ÎïÆ·Ìå»ıÊı×é {1,2,3,4}
-     * @param values  ÎïÆ·¼ÛÖµÊı×é {2,4,3,6}
-     * @return ·µ»Ø×î´ó¼ÛÖµ
+     * @param W       èƒŒåŒ…æœ€å¤§ä½“ç§¯å®¹é‡
+     * @param weights ç‰©å“ä½“ç§¯æ•°ç»„ {1,2,3,4}
+     * @param values  ç‰©å“ä»·å€¼æ•°ç»„ {2,4,3,6}
+     * @return è¿”å›æœ€å¤§ä»·å€¼
      **/
     public int knapsack(int W, int[] weights, int[] values) {
         int length = weights.length;
         /*int[][] dp = new int[length + 1][W + 1];
-        for (int i = 1; i <= length; i++) { // ÎïÆ·Êı×éÑ­»·
+        for (int i = 1; i <= length; i++) { // ç‰©å“æ•°ç»„å¾ªç¯
             int w = weights[i - 1];
             int v = values[i - 1];
-            for (int j = 1; j <= W; j++) { // ÎïÆ·Ìå»ıÑ­»·
-                if (j >= w) { // µÚ i ¸öÎïÆ·¼ÓÈë±³°ü
+            for (int j = 1; j <= W; j++) { // ç‰©å“ä½“ç§¯å¾ªç¯
+                if (j >= w) { // ç¬¬ i ä¸ªç‰©å“åŠ å…¥èƒŒåŒ…
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - w] + v);
                 } else {
                     dp[i][j] = dp[i - 1][j];
@@ -54,11 +53,11 @@ public class DynamicPlan {
         }
         return dp[length][W];*/
 
-        int[] dp = new int[W + 1]; // Ò»Î¬Êı×éÓÅ»¯
-        for (int i = 1; i <= length; i++) { // ÎïÆ·Êı×éÑ­»·
+        int[] dp = new int[W + 1]; // ä¸€ç»´æ•°ç»„ä¼˜åŒ–
+        for (int i = 1; i <= length; i++) { // ç‰©å“æ•°ç»„å¾ªç¯
             int w = weights[i - 1];
             int v = values[i - 1];
-            for (int j = W; j >= 1; j--) { // 0-1 ±³°üÎÊÌâÒ»Î¬Êı×é±íÊ¾ĞèÄæĞò±éÀú,·ñÔòÖ®Ç°µÄ¼ÆËã½á¹û»á¶ÔÖ®ºóµÄ½á¹ûÔì³ÉÓ°Ïì
+            for (int j = W; j >= 1; j--) { // 0-1 èƒŒåŒ…é—®é¢˜ä¸€ç»´æ•°ç»„è¡¨ç¤ºéœ€é€†åºéå†,å¦åˆ™ä¹‹å‰çš„è®¡ç®—ç»“æœä¼šå¯¹ä¹‹åçš„ç»“æœé€ æˆå½±å“
                 if (j >= w) {
                     dp[j] = Math.max(dp[j], dp[j - w] + v);
 
@@ -77,7 +76,7 @@ public class DynamicPlan {
     int sum = 0;
     int[] nums = {1, 2, 3, 4};
 
-    // »®·ÖÊı×éÎªÏàµÈµÄÁ½²¿·Ö,»ØËİ·¨
+    // åˆ’åˆ†æ•°ç»„ä¸ºç›¸ç­‰çš„ä¸¤éƒ¨åˆ†,å›æº¯æ³•
     public void spiltArray(int startIndex, int target) {
 
         if (target == sum) {
@@ -91,13 +90,13 @@ public class DynamicPlan {
         for (int i = startIndex; i < length; i++) {
             a[count++] = nums[i];
             sum += nums[i];
-            spiltArray(i + 1, target); //Êı×éÔªËØ²»¿É¸´ÓÃ, index +1
+            spiltArray(i + 1, target); //æ•°ç»„å…ƒç´ ä¸å¯å¤ç”¨, index +1
             sum -= nums[i];
             a[--count] = 0;
         }
     }
 
-    // ÅĞ¶ÏÊı×éÊÇ·ñ¿É»®·ÖÎªºÍÏàµÈµÄÁ½²¿·Ö,¶¯Ì¬¹æ»®,¿É¿´³ÉÒ»¸ö±³°ü´óĞ¡Îª sum/2 µÄ 0-1 ±³°üÎÊÌâ
+    // åˆ¤æ–­æ•°ç»„æ˜¯å¦å¯åˆ’åˆ†ä¸ºå’Œç›¸ç­‰çš„ä¸¤éƒ¨åˆ†,åŠ¨æ€è§„åˆ’,å¯çœ‹æˆä¸€ä¸ªèƒŒåŒ…å¤§å°ä¸º sum/2 çš„ 0-1 èƒŒåŒ…é—®é¢˜
     public boolean canPartition(int[] nums) {
         int sum = 0;
         for (int num : nums) {
@@ -111,7 +110,7 @@ public class DynamicPlan {
         dp[0] = true;
         for (int num : nums) {
             System.out.println("the num is " + num);
-            for (int i = W; i >= num; i--) {   // ´ÓºóÍùÇ°£¬ÏÈ¼ÆËã dp[i] ÔÙ¼ÆËã dp[i-num]
+            for (int i = W; i >= num; i--) {   // ä»åå¾€å‰ï¼Œå…ˆè®¡ç®— dp[i] å†è®¡ç®— dp[i-num]
                 dp[i] = dp[i] || dp[i - num];
                 System.out.println("dp[" + i + "]:" + dp[i] + "," + "dp[" + (i - num) + "]:" + dp[i - num]);
             }
@@ -121,9 +120,9 @@ public class DynamicPlan {
 
 
     /***
-     * @param coins Ó²±ÒÃæÖµÊı×é
-     * @param amount Ä¿±êÊı¶î
-     * @return Ê¹ÓÃÓ²±Ò´Õ³öÄ¿±êÊı¶îµÄ×îÉÙÓ²±ÒÊı
+     * @param coins ç¡¬å¸é¢å€¼æ•°ç»„
+     * @param amount ç›®æ ‡æ•°é¢
+     * @return ä½¿ç”¨ç¡¬å¸å‡‘å‡ºç›®æ ‡æ•°é¢çš„æœ€å°‘ç¡¬å¸æ•°
      * */
     public int coinChange(int[] coins, int amount) {
         // coins = [1, 2, 5], amount = 12
@@ -132,7 +131,7 @@ public class DynamicPlan {
         }
         int[] dp = new int[amount + 1];
         for (int coin : coins) {
-            for (int i = coin; i <= amount; i++) { // ÕâÊÇÒ»¸öÍêÈ«±³°üÎÊÌâ¡£ÍêÈ«±³°üĞèÒª½« 0-1 ±³°üÖĞÄæĞò±éÀú dp Êı×é¸ÄÎªÕıĞò±éÀú,
+            for (int i = coin; i <= amount; i++) { // è¿™æ˜¯ä¸€ä¸ªå®Œå…¨èƒŒåŒ…é—®é¢˜ã€‚å®Œå…¨èƒŒåŒ…éœ€è¦å°† 0-1 èƒŒåŒ…ä¸­é€†åºéå† dp æ•°ç»„æ”¹ä¸ºæ­£åºéå†,
                 if (i == coin) {
                     dp[i] = 1;
                 } else if (dp[i] == 0 && dp[i - coin] != 0) {

@@ -1,4 +1,3 @@
-package Count;
 
 public class AllSort {
 
@@ -12,41 +11,41 @@ public class AllSort {
         }
     }
 
-    public void Heapify(int a[], int i, int size) {//´Óa[i]ÏòÏÂµ÷Õû¶Ñ
+    public void Heapify(int a[], int i, int size) {//ä»a[i]å‘ä¸‹è°ƒæ•´å †
         int left_child = 2 * i + 1;
         int right_child = 2 * i + 2;
         int max = i;
-        //ÕÒ¸¸½ÚµãºÍÁ½¸ö×Ó½ÚµãÖĞµÄ×î´óÖµ£¬È·±£¸¸½ÚµãÎª×î´óÖµ
+        //æ‰¾çˆ¶èŠ‚ç‚¹å’Œä¸¤ä¸ªå­èŠ‚ç‚¹ä¸­çš„æœ€å¤§å€¼ï¼Œç¡®ä¿çˆ¶èŠ‚ç‚¹ä¸ºæœ€å¤§å€¼
         if (left_child < size && a[left_child] > a[max])
             max = left_child;
         if (right_child < size && a[right_child] > a[max])
             max = right_child;
         if (max != i) {
             swap(a, i, max);
-            Heapify(a, max, size);//¼ÇÂ¼½»»»Ç°×Ó½ÚµãÎ»ÖÃ£¬´Ó¸ÃÎ»ÖÃÏòÏÂµ÷Õû¶Ñ
+            Heapify(a, max, size);//è®°å½•äº¤æ¢å‰å­èŠ‚ç‚¹ä½ç½®ï¼Œä»è¯¥ä½ç½®å‘ä¸‹è°ƒæ•´å †
         }
     }
 
-    //½¨×î´ó¶Ñ
+    //å»ºæœ€å¤§å †
     public int BuildHeap(int a[], int n) {
         int heap_size = n;
-        for (int i = heap_size / 2 - 1; i >= 0; i--) {//´Ó·ÇÒ¶×Ó½áµã¿ªÊ¼µ÷Õû£¬Ö±µ½a[0]¸ù
+        for (int i = heap_size / 2 - 1; i >= 0; i--) {//ä»éå¶å­ç»“ç‚¹å¼€å§‹è°ƒæ•´ï¼Œç›´åˆ°a[0]æ ¹
             Heapify(a, i, heap_size);
         }
         return heap_size;
     }
 
-    //¶ÑÅÅĞò
+    //å †æ’åº
     public void HeapSort(int a[], int n) {
         int heap_size = BuildHeap(a, n);
         while (heap_size > 1) {
-            // ½«¶Ñ¶¥ÔªËØÓë¶ÑµÄ×îºóÒ»¸öÔªËØ»¥»»£¬²¢½«×îºóÒ»¸öÔªËØ´ÓÒÔºóµÄ¶Ñµ÷ÕûÖĞºöÂÔ--heap_size
+            // å°†å †é¡¶å…ƒç´ ä¸å †çš„æœ€åä¸€ä¸ªå…ƒç´ äº’æ¢ï¼Œå¹¶å°†æœ€åä¸€ä¸ªå…ƒç´ ä»ä»¥åçš„å †è°ƒæ•´ä¸­å¿½ç•¥--heap_size
             swap(a, 0, --heap_size);
-            Heapify(a, 0, heap_size);//´ÓĞÂµÄ¶Ñ¶¥µ÷Õû¶Ñ
+            Heapify(a, 0, heap_size);//ä»æ–°çš„å †é¡¶è°ƒæ•´å †
         }
     }
 
-    //¹é²¢ÅÅĞò
+    //å½’å¹¶æ’åº
     public void Merge(int a[], int left, int mid, int right) {
         int len = right - left + 1;
         int temp[] = new int[len];
@@ -54,7 +53,7 @@ public class AllSort {
         int i = left, j = mid + 1;
         while (i <= mid && j <= right) {
             temp[index++] = a[i] <= a[j] ? a[i++] : a[j++];
-        }//×óÓÒÁ½²¿·Ö³¤¶È²»Ò»ÑùÊ±µÄ´¦Àí
+        }//å·¦å³ä¸¤éƒ¨åˆ†é•¿åº¦ä¸ä¸€æ ·æ—¶çš„å¤„ç†
         while (i <= mid) {
             temp[index++] = a[i++];
         }
@@ -62,21 +61,21 @@ public class AllSort {
             temp[index++] = a[j++];
         }
         for (int k = 0; k < len; k++) {
-            a[left++] = temp[k];//°ÑÅÅĞòºÃµÄÊı×é¸³Öµ¸øÔ­Êı×é
+            a[left++] = temp[k];//æŠŠæ’åºå¥½çš„æ•°ç»„èµ‹å€¼ç»™åŸæ•°ç»„
         }
     }
 
     public void MergeSort(int a[], int left, int right) {
         if (left == right) return;
-        int mid = (left + right) / 2;//°ÑÊı×é·Ö»®
+        int mid = (left + right) / 2;//æŠŠæ•°ç»„åˆ†åˆ’
         MergeSort(a, left, mid);
         MergeSort(a, mid + 1, right);
 
-        Merge(a, left, mid, right);//¹é²¢Êı×é
+        Merge(a, left, mid, right);//å½’å¹¶æ•°ç»„
 
     }
 
-	// Ã°ÅİÅÅĞò£¬×îºÃÊ±¼äÎª O£¨n£©,×î´óµÄÃ°µ½Êı×éÄ©Î²
+	// å†’æ³¡æ’åºï¼Œæœ€å¥½æ—¶é—´ä¸º Oï¼ˆnï¼‰,æœ€å¤§çš„å†’åˆ°æ•°ç»„æœ«å°¾
 	public void bubbleSort(int a[]) {
 		int length = a.length;
 		for (int i = 0; i < length - 1; i++) {
@@ -88,12 +87,12 @@ public class AllSort {
 		}
 	}
 	
-	//²åÈëÅÅĞò£¬ÀàËÆ×¥ÅÆÅÅĞò
+	//æ’å…¥æ’åºï¼Œç±»ä¼¼æŠ“ç‰Œæ’åº
 	public void insertSort(int a[]) {
 		for (int i = 0;i <a.length;i++) {
-			int get = a[i]; // Ä¬ÈÏ a[0]ÎªÅÅĞòºÃµÄÔªËØ
+			int get = a[i]; // é»˜è®¤ a[0]ä¸ºæ’åºå¥½çš„å…ƒç´ 
 			int j = i-1;
-			while (j >= 0 && a[j] >get) {// a[i] ĞèÒªÍùÓĞĞòĞòÁĞ²åÈë£¬ĞòÁĞÖĞ´óÓÚ get µÄÔªËØĞèÍùºóÒÆ¶¯£¬Å²³öÎ»ÖÃ
+			while (j >= 0 && a[j] >get) {// a[i] éœ€è¦å¾€æœ‰åºåºåˆ—æ’å…¥ï¼Œåºåˆ—ä¸­å¤§äº get çš„å…ƒç´ éœ€å¾€åç§»åŠ¨ï¼ŒæŒªå‡ºä½ç½®
 				a[j+1]= a[j];
 				j--;
 			}
@@ -101,7 +100,7 @@ public class AllSort {
 		}
 	}
 	
-	//Ñ¡ÔñÅÅĞò£¬Ã¿´ÎÑ¡Ôñ×îĞ¡Öµ·Åµ½Êı×éÒÑÅÅĞòµÄÄ©Î²
+	//é€‰æ‹©æ’åºï¼Œæ¯æ¬¡é€‰æ‹©æœ€å°å€¼æ”¾åˆ°æ•°ç»„å·²æ’åºçš„æœ«å°¾
 	public void selectSort(int a[]) {
 		for (int i = 0; i < a.length - 1; i++) {
 			int minIndex = i;
@@ -116,7 +115,7 @@ public class AllSort {
 		}
 	}
     
-    //¿ìÅÅ
+    //å¿«æ’
     public void QuickSort(int a[], int left, int right) {
         int i, j;
         while (left < right) {
@@ -125,10 +124,10 @@ public class AllSort {
             do {
                 while (a[++i] < a[left]) ;
                 while (a[--j] > a[left]) ;
-                if (i < j) swap(a, i, j);//´Ó×óÍùÓÒÕÒ±È±ê¼ÇÔªËØ´ó,´ÓÓÒÍù×óÕÒ±È±ê¼ÇÔªËØĞ¡,½»»»
+                if (i < j) swap(a, i, j);//ä»å·¦å¾€å³æ‰¾æ¯”æ ‡è®°å…ƒç´ å¤§,ä»å³å¾€å·¦æ‰¾æ¯”æ ‡è®°å…ƒç´ å°,äº¤æ¢
             } while (i < j);
 
-            swap(a, left, j);//Ò»ÌËÍê±Ï£¬½»»»±ê¼ÇÔªËØÎ»ÖÃ
+            swap(a, left, j);//ä¸€è¶Ÿå®Œæ¯•ï¼Œäº¤æ¢æ ‡è®°å…ƒç´ ä½ç½®
             QuickSort(a, left, j - 1);
             QuickSort(a, j + 1, right);
             return;

@@ -1,4 +1,3 @@
-package DealWithString;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -7,14 +6,14 @@ import java.util.regex.Pattern;
 public class StringFindMaxLengthNumber {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("ÊäÈë£º");
+        System.out.println("è¾“å…¥ï¼š");
         String s2 = sc.nextLine();
         String s1 = findMaxLength(s2);
         System.out.println(s1);
     }
 
     /**
-     * ÕÒ³ö×Ö·û´®ÖĞ³¤¶È×î³¤µÄÁ¬ĞøÊı×ÖĞòÁĞ
+     * æ‰¾å‡ºå­—ç¬¦ä¸²ä¸­é•¿åº¦æœ€é•¿çš„è¿ç»­æ•°å­—åºåˆ—
      * */
     public static String findMaxLength(String s) {
         if (null == s && s.length() <= 0) return "";

@@ -1,4 +1,3 @@
-package Count;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -17,12 +16,11 @@ public class CountHongBao {
 
 
         while (index < n - 1) {
-            //BigDecimal ��������double���͵�С�������λ
+            //BigDecimal deal with double type
             double number = (double) (Math.random() * m);
             BigDecimal bg = new BigDecimal(number);
             double f1 = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 
-            //�߼����Ʋ��������������С��ʣ�µ�Ǯ�Ҳ�Ϊ0
             if (sum > f1 && f1 != 0) {
                 a[index++] = f1;
                 sum -= number;

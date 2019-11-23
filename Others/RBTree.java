@@ -1,5 +1,3 @@
-package Others;
-
 /**
  * Java: 红黑树
  */

@@ -1,4 +1,3 @@
-package DealWithString;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,12 +13,12 @@ public class StringRead {
         int a[] = {18, 15, 7, 4, 9};
 
         while ((s = Two.readLine()) != null) {
-            String[] str2 = s.split(" ");//¶ÁÈ¡×Ö·û´®ÖĞÊı¾İ
-            int[] arr = new int[str2.length];//´´½¨intÊı×é
+            String[] str2 = s.split(" ");//è¯»å–å­—ç¬¦ä¸²ä¸­æ•°æ®
+            int[] arr = new int[str2.length];//åˆ›å»ºintæ•°ç»„
             int temp = 0;
 
             for (int j = 0; j < str2.length; j++) {
-                arr[j] = Integer.parseInt(str2[j]);//×Ö·û´®Êı×é´æ´¢×ª»¯³ÉintµÄÊı×é
+                arr[j] = Integer.parseInt(str2[j]);//å­—ç¬¦ä¸²æ•°ç»„å­˜å‚¨è½¬åŒ–æˆintçš„æ•°ç»„
                 temp = arr[j] + temp;
             }
             boolean flag = true;

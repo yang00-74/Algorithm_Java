@@ -1,8 +1,7 @@
-package DealWithString;
 
 /**
- * ÅĞ¶Ï»ØÎÄ×Ö´®
- * ÁíÒ»ÖÖË¼Â·ÊÇÊ¹ÓÃÕ»½«×Ö·û´®·Ö¸îÎª char ÈëÕ»,ÒÀ´Î³öÕ»ÓëÔ­×Ö·û´®±È½Ï¼´¿É
+ * åˆ¤æ–­å›æ–‡å­—ä¸²
+ * å¦ä¸€ç§æ€è·¯æ˜¯ä½¿ç”¨æ ˆå°†å­—ç¬¦ä¸²åˆ†å‰²ä¸º char å…¥æ ˆ,ä¾æ¬¡å‡ºæ ˆä¸åŸå­—ç¬¦ä¸²æ¯”è¾ƒå³å¯
  */
 
 public class StringCycle {
@@ -14,10 +13,10 @@ public class StringCycle {
 
         for (int start = 0, end1 = len; start <= len && end1 >= 0; start++, end1--) {
             if (c[start] != c[end1]) {
-                System.out.println("²»ÊÇ»ØÎÄ");
+                System.out.println("ä¸æ˜¯å›æ–‡");
                 return;
             }
         }
-        System.out.println("ÊÇ»ØÎÄ");
+        System.out.println("æ˜¯å›æ–‡");
     }
 }

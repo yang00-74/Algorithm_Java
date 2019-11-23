@@ -1,4 +1,3 @@
-package Others;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,13 +8,13 @@ public class ListMap2LinkedHashMap {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		Scanner sc0=new Scanner(System.in);
-		System.out.println("ÊäÈëcacheÈİÁ¿ºÍÃüÁîĞĞÊı£º");
+		System.out.println("è¾“å…¥cacheå®¹é‡å’Œå‘½ä»¤è¡Œæ•°ï¼š");
 		int n=sc.nextInt();
 		int m=sc.nextInt();
 	    int count=0;
 		ListMap2LinkedHashMap t=new ListMap2LinkedHashMap();
 		
-		System.out.println("ÊäÈëÃüÁî£º");
+		System.out.println("è¾“å…¥å‘½ä»¤ï¼š");
 		while(sc0.hasNextLine()){
 			String str=sc0.nextLine();
 			String s[]=str.split(" "); 
@@ -25,7 +24,7 @@ public class ListMap2LinkedHashMap {
 			}else if(s[0].equals("get")){
 				t.get(s[1]);
 			} else{
-				System.out.println("Êı¾İ²»ºÏ·¨,½áÊø");
+				System.out.println("æ•°æ®ä¸åˆæ³•,ç»“æŸ");
 				return ;
 			}
 			count++;

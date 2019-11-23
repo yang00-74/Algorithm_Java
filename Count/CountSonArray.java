@@ -1,11 +1,10 @@
-package Count;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- * Í³¼ÆÒ»¸öÊı×é£¨Êı×é³É»·£©ËùÓĞ×ÓÊı×éµÄºÍµÄ×î´óÖµ
+ * ç»Ÿè®¡ä¸€ä¸ªæ•°ç»„ï¼ˆæ•°ç»„æˆç¯ï¼‰æ‰€æœ‰å­æ•°ç»„çš„å’Œçš„æœ€å¤§å€¼
  *
  * @author Administrator
  */
@@ -46,7 +45,7 @@ public class CountSonArray {
                         max = sum;
                 }
             }
-            list.add(list.remove(0));//°ÑµÚÒ»¸öÔªËØÒÆÖÁÎ²²¿£¬ĞÎ³É»·
+            list.add(list.remove(0));//æŠŠç¬¬ä¸€ä¸ªå…ƒç´ ç§»è‡³å°¾éƒ¨ï¼Œå½¢æˆç¯
         }
         System.out.println(max);
     }

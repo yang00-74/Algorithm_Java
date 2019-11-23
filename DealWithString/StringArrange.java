@@ -1,4 +1,3 @@
-package DealWithString;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * @input String
- * @output Êä³ö¸Ã×Ö·û´®ËùÓĞµ¥¸ö×Ö·ûÖØĞÂÅÅÁĞµÄ²»ÖØ¸´µÄ×Ö·û´®
+ * @output è¾“å‡ºè¯¥å­—ç¬¦ä¸²æ‰€æœ‰å•ä¸ªå­—ç¬¦é‡æ–°æ’åˆ—çš„ä¸é‡å¤çš„å­—ç¬¦ä¸²
  */
 public class StringArrange {
     public static void main(String[] args) {
@@ -34,7 +33,7 @@ public class StringArrange {
         fun(set, str.toCharArray(), 0);
 
         result.addAll(set);
-        Collections.sort(result);//¹¤¾ßÀàÅÅĞò
+        Collections.sort(result);//å·¥å…·ç±»æ’åº
         return result;
     }
 

@@ -1,11 +1,10 @@
-package Others;
 
 import java.util.LinkedList;
 
 public class StackFromLinkList {
 
     /**
-     * ¼¯ºÏÀàÄ£ÄâÊı¾İ½á¹¹Õ»/¶ÓÁĞ
+     * é›†åˆç±»æ¨¡æ‹Ÿæ•°æ®ç»“æ„æ ˆ/é˜Ÿåˆ—
      */
     private LinkedList link;
 
@@ -20,8 +19,8 @@ public class StackFromLinkList {
 
     public Object get() {
 
-        //return link.removeFirst();//µ¯³öÍ·½áµã,Ä£ÄâÕ»£¬ÏÈ½øºó³ö
-        return link.removeLast();//µ¯³öÎ²²¿½áµã£¬Ä£Äâ¶ÓÁĞ£¬ÏÈ½øÏÈ³ö
+        //return link.removeFirst();//å¼¹å‡ºå¤´ç»“ç‚¹,æ¨¡æ‹Ÿæ ˆï¼Œå…ˆè¿›åå‡º
+        return link.removeLast();//å¼¹å‡ºå°¾éƒ¨ç»“ç‚¹ï¼Œæ¨¡æ‹Ÿé˜Ÿåˆ—ï¼Œå…ˆè¿›å…ˆå‡º
     }
 
     public boolean isEmpty() {
