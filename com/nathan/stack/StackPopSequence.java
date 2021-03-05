@@ -18,7 +18,7 @@ import java.util.Stack;
  *
  */
 
-public class StackPOPSequence {
+public class StackPopSequence {
 
 
     public boolean isPopOrder(int[] pushA, int[] popA) {

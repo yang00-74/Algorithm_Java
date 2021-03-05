@@ -25,18 +25,6 @@ public class ListNodeI {
         d.next = e;
         e.next = f;
        // f.next = g;
-
-    //    new com.nathan.list.ListNodeI().deleteDuplication2(a);
-        ListNode n = new ListNodeI().findMidNode(a);
-
-        while (a != null) {
-            System.out.print(n.val);
-            if (n.next != null)
-                n = n.next;
-            else {
-                return;
-            }
-        }
     }
 
     //链表元素出现重复就删除
@@ -61,24 +49,6 @@ public class ListNodeI {
         }
         return result.next;
 
-    }
-
-    //打印链表倒数第k个元素
-    public ListNode FindKthToTail(ListNode head, int k) {
-        if (head == null) return null;
-        int count = 0;
-        ListNode node = head;
-        while (node != null) {
-            node = node.next;
-            count++;
-        }
-        if (count < k) return null;
-
-        ListNode p = head;
-        for (int i = 0; i < count - k; i++) {
-            p = p.next;
-        }
-        return p;
     }
 
     //链表复制
@@ -144,44 +114,6 @@ public class ListNodeI {
         return null;
     }
 
-    //双指针，反转链表
-    public ListNode ReverseList(ListNode head) {
-        if (head == null) return null;
-
-        ListNode pre = null;
-        ListNode next = null;
-        while (head != null) {
-            next = head.next;
-            head.next = pre;
-            pre = head;
-
-            head = next;
-
-        }
-        return pre;
-    }
-
-    /**
-     * 一次遍历访问链表中间节点
-     *
-     * 思路:
-     * 快慢指针,当快指针到达链表尾部时,慢指针到达链表中部
-     */
-    public ListNode findMidNode(ListNode root) {
-        if (root == null) return null;
-        ListNode twoStep = root;
-
-        while (twoStep.next != null) {
-            root = root.next;
-            twoStep = twoStep.next.next;
-            if (twoStep == null) {
-                break;
-            }
-        }
-        System.out.println(root.val);
-        return root;
-    }
-
     public ListNode sortList(ListNode head) {
         List<Integer> list = new ArrayList();
         ListNode cur = head;
@@ -197,15 +129,6 @@ public class ListNodeI {
         }
         return cur;
 
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next = null;
-
-        ListNode(int val) {
-            this.val = val;
-        }
     }
 
 }

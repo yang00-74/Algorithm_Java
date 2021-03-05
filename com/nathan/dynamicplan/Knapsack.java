@@ -1,16 +1,14 @@
 package com.nathan.dynamicplan;
 
-import java.util.Arrays;
-
 /**
  * @author Ye.Yang
  * @date 19-7-8 下午7:24
  **/
-public class DynamicPlan {
+public class Knapsack {
 
     public static void main(String[] args) {
 
-        DynamicPlan dp = new DynamicPlan();
+        Knapsack dp = new Knapsack();
         int[] weights = {1, 2, 3, 4};
         int[] values = {2, 4, 3, 6};
 
@@ -74,31 +72,6 @@ public class DynamicPlan {
         return dp[W];
     }
 
-    int[] a = new int[20];
-    int count = 0;
-    int sum = 0;
-    int[] nums = {1, 2, 3, 4};
-
-    // 划分数组为相等的两部分,回溯法
-    public void spiltArray(int startIndex, int target) {
-
-        if (target == sum) {
-            for (int i = 0; i <= count - 1; i++) {
-                System.out.print(a[i] + ",");
-            }
-            System.out.println(" ");
-        }
-        if (sum > target) return;
-        int length = nums.length;
-        for (int i = startIndex; i < length; i++) {
-            a[count++] = nums[i];
-            sum += nums[i];
-            spiltArray(i + 1, target); //数组元素不可复用, index +1
-            sum -= nums[i];
-            a[--count] = 0;
-        }
-    }
-
     // 判断数组是否可划分为和相等的两部分,动态规划,可看成一个背包大小为 sum/2 的 0-1 背包问题
     public boolean canPartition(int[] nums) {
         int sum = 0;
@@ -153,6 +126,7 @@ public class DynamicPlan {
         return dp[amount] == 0 ? -1 : dp[amount];
     }
 
+    // TODO
     public int coinChange_dp(int[] coins, int amount) {
         int[][] dp = new int[coins.length][amount + 1];
         for (int i = 0; i < coins.length; i++) {
@@ -173,25 +147,6 @@ public class DynamicPlan {
         }
 
         return dp[coins.length - 1][amount];
-    }
-
-    public int lengthOfLIS(int[] nums) {
-        if (0 == nums.length) {
-            return 0;
-        }
-        int[] dp = new int[nums.length];
-        int result = 0;
-        Arrays.fill(dp, 1);
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < i; j++) {
-                if (nums[j] < nums[i]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
-                }
-                result = Math.max(dp[i], result);
-            }
-        }
-        return result;
     }
 
 }

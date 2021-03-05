@@ -21,9 +21,7 @@ public class Fibonacci {
 	 * 3.递归实现
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-               System.out.println("第二十个数是："+fib(20));
-             
+		System.out.println("第二十个数是：" + fib(20));
 	}
 
 	public static int fib(int n) {

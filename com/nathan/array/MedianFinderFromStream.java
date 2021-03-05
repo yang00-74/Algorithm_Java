@@ -2,7 +2,10 @@ package com.nathan.array;
 
 import java.util.PriorityQueue;
 
-class MedianFinder {
+/**
+ *  数据流的中位数
+ * */
+class MedianFinderFromStream {
 
     private PriorityQueue<Integer> hiHeap;
 
@@ -11,8 +14,10 @@ class MedianFinder {
     /**
      * initialize your data structure here.
      */
-    public MedianFinder() {
+    public MedianFinderFromStream() {
+        // 小顶堆，存储大的那一半元素，堆顶为最小值
         hiHeap = new PriorityQueue<>();
+        // 大顶堆，存储小的那一半元素，堆顶为最大值
         lowHeap = new PriorityQueue<>((a, b) -> b - a);
     }
 
@@ -31,10 +36,3 @@ class MedianFinder {
         return (double) lowHeap.peek();
     }
 }
-
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * MedianFinder obj = new MedianFinder();
- * obj.addNum(num);
- * double param_2 = obj.findMedian();
- */

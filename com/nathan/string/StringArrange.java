@@ -14,7 +14,7 @@ public class StringArrange {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
 
-        ArrayList<String> list = new StringArrange().Permutation(str);
+        ArrayList<String> list = new StringArrange().permutation(str);
         for (int i = 0; i < list.size(); i++) {
             if (i == list.size() - 1) {
                 System.out.println(list.get(i));
@@ -24,7 +24,7 @@ public class StringArrange {
         }
     }
 
-    public ArrayList<String> Permutation(String str) {
+    public ArrayList<String> permutation(String str) {
         ArrayList<String> result = new ArrayList<String>();
         if (str == null || str.length() == 0) {
             return result;

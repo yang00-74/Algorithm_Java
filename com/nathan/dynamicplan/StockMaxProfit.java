@@ -2,19 +2,20 @@ package com.nathan.dynamicplan;
 
 import java.util.Arrays;
 
-/**
- * 数组模拟股票买卖，操作两次，求收益最大
- *    基本思想是分成两个时间段，然后对于某一天，计算之前的最大值和之后的最大值 
- * @author Administrator
- *
- */
-public class CountArrayDP {
+
+public class StockMaxProfit {
 
 	public static void main(String[] args) {   
         int[] prices = {2,2,3,4,8,2,6};  
-        System.out.println(maxProfit_k_2_dp(prices));
-    }  
-      
+        System.out.println(maxProfitK2Dp(prices));
+    }
+
+    /**
+     * 数组模拟股票买卖，操作两次，求收益最大
+     *    基本思想是分成两个时间段，然后对于某一天，计算之前的最大值和之后的最大值
+     * @author Administrator
+     *
+     */
     public static int maxProfit(int[] prices) {  
         if(prices.length == 0){  
             return 0;  
@@ -60,7 +61,7 @@ public class CountArrayDP {
 
     }
 
-    public static int maxProfit_k_2(int[] prices) {
+    public static int maxProfitK2(int[] prices) {
         int dp_i10 = 0, dp_i11 = Integer.MIN_VALUE;
         int dp_i20 = 0, dp_i21 = Integer.MIN_VALUE;
         for (int price : prices) {
@@ -73,7 +74,7 @@ public class CountArrayDP {
     }
 
 
-    public static int maxProfit_k_2_dp(int[] prices) {
+    public static int maxProfitK2Dp(int[] prices) {
         int max_k = 2;
         int[][][] dp = new int[prices.length][max_k + 1][2];
         for (int i = 0; i < prices.length; i++) {

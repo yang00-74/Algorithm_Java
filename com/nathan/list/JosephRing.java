@@ -29,7 +29,7 @@ public class JosephRing {
             list.add(i);
         }
 
-        for (int j = 0; j < start-1; j++) {
+        for (int j = 0; j < start - 1; j++) {
             // 调整list，使第一个报数的人 k 位于列表头部，否则 k 之前的人不会加入环中进行循环
             list.add(list.remove(0));
         }
