@@ -2,7 +2,7 @@ package com.nathan.list;
 
 public class ReverseList {
     /**
-     * 双指针，反转链表
+     * leet code 206 双指针，反转链表
      *
      *定义两个指针： pre 和 cur , pre 在前 cur 在后。
      * 每次让 pre 的 next 指向 cur ，实现一次局部反转

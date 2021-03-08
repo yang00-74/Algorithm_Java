@@ -1,17 +1,16 @@
 package com.nathan.string;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * 用数组中的元素组成一个最小的整数
  *
  * @author Administrator
  */
-public class StringSort {
+public class CreateMinNumberOfArray {
     public static void main(String[] args) {
         int[] a = {45, 78, 1, 6};
-        System.out.println(new StringSort().PrintMinNumber(a));
+        System.out.println(new CreateMinNumberOfArray().PrintMinNumber(a));
     }
 
     public String PrintMinNumber(int[] numbers) {
