@@ -3,6 +3,7 @@ package com.nathan.array;
 /**
  * 找中位数和出现次数超过数组长度一半的数
  *
+ * 剑指 Offer 39. 数组中出现次数超过一半的数字
  * @author Administrator
  */
 public class FindMoreThanHalfMiddleNumber {
@@ -39,7 +40,7 @@ public class FindMoreThanHalfMiddleNumber {
      */
     public int moreThanHalfNum(int[] array) {
         int result = array[0]; // 记录候选值
-        int count = 1; // 记录候选值出现次数,为 0 则更新候选值
+        int count = 0; // 记录候选值出现次数,为 0 则更新候选值
 
         for (int i = 0; i < array.length; i++) {
             if (count == 0) {

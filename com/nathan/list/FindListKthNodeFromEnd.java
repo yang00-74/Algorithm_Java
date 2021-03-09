@@ -2,7 +2,10 @@ package com.nathan.list;
 
 public class FindListKthNodeFromEnd {
 
-    // 打印链表倒数第k个元素
+    /** 打印链表倒数第k个元素
+     *
+     * 剑指 Offer 22
+     * */
     public ListNode findKthFromEnd(ListNode head, int k) {
         if (null == head || k < 0) {
             return null;

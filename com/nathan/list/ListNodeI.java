@@ -62,22 +62,6 @@ public class ListNodeI {
         return p;
     }
 
-    //合并两个有序链表
-    public ListNode Merge(ListNode list1, ListNode list2) {
-        if (list1 == null) return list2;
-        if (list2 == null) return list1;
-
-        ListNode p = null;
-        if (list1.val < list2.val) {
-            p = list1;
-            p.next = Merge(list1.next, list2);
-        } else {
-            p = list2;
-            p.next = Merge(list1, list2.next);
-        }
-        return p;
-    }
-
     //去掉链表中重复的元素
     public ListNode deleteDuplication(ListNode pHead) {
         while (pHead != null) {

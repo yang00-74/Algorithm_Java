@@ -17,4 +17,14 @@ public class Util {
         }
         return sum;
     }
+
+    public static void reverseCharArray(char[] chars, int start, int end) {
+        while (start < end) {
+            char temp = chars[start];
+            chars[start] = chars[end];
+            chars[end] = temp;
+            start++;
+            end--;
+        }
+    }
 }

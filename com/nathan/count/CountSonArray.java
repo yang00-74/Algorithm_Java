@@ -26,15 +26,15 @@ public class CountSonArray {
         new CountSonArray().maxSum1(b, n);
     }
 
-    public void maxSum1(int A[], int n) {
-        if (A.length == 0 || A == null) {
+    public void maxSum1(int nums[], int n) {
+        if (nums.length == 0 || nums == null) {
             return;
         }
         int max = -1;
         int i, j, sum;
         List list = new ArrayList();
         for (int k = 0; k < n; k++) {
-            list.add(A[k]);
+            list.add(nums[k]);
         }
 
         for (int l = 0; l < n; l++) {
