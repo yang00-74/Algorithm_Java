@@ -18,14 +18,14 @@ class MedianFinderFromSortedArray4 {
         int total = len1 + len2;
         //如果A数组长度+B数组长度total是奇数，则找total/2+1小的元素即为中位数
         if((total & 1) == 1) {
-            int midIndex = total / 2 + 1;
-            return getKthElement(nums1, nums2, midIndex);
+            int midKth = total / 2 + 1;
+            return getKthElement(nums1, nums2, midKth);
         } else {
             //否则，找total/2，total/2+1这两个元素
-            int midIndex_1 = total / 2;
-            int midIndex_2 = total / 2 + 1;
-            double a = getKthElement(nums1, nums2, midIndex_1);
-            double b = getKthElement(nums1, nums2, midIndex_2);
+            int midKth1 = total / 2;
+            int midKth2 = total / 2 + 1;
+            double a = getKthElement(nums1, nums2, midKth1);
+            double b = getKthElement(nums1, nums2, midKth2);
             return (a + b) / 2.0D;
         }
     }
@@ -45,18 +45,6 @@ class MedianFinderFromSortedArray4 {
         int index2 = 0;
 
         while(true) {
-
-            int targetIndex1 = Math.min(index1 + k / 2, len1) - 1;
-            int targetIndex2 = Math.min(index2 + k / 2, len2) - 1;
-
-            if (nums1[targetIndex1] >= nums2[targetIndex2]) {
-                k -= (targetIndex2 - index2 + 1);
-                index2 = targetIndex2 + 1;
-            } else {
-                k -= (targetIndex1 - index1 + 1);
-                index1 = targetIndex1 + 1;
-            }
-
             if (index2 == len2) {
                 return nums1[index1 + k - 1];
             }
@@ -67,6 +55,17 @@ class MedianFinderFromSortedArray4 {
 
             if (k == 1) {
                 return Math.min(nums1[index1], nums2[index2]);
+            }
+
+            int targetIndex1 = Math.min(index1 + k / 2, len1) - 1;
+            int targetIndex2 = Math.min(index2 + k / 2, len2) - 1;
+
+            if (nums1[targetIndex1] >= nums2[targetIndex2]) {
+                k -= (targetIndex2 - index2 + 1);
+                index2 = targetIndex2 + 1;
+            } else {
+                k -= (targetIndex1 - index1 + 1);
+                index1 = targetIndex1 + 1;
             }
 
         }

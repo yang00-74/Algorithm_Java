@@ -1,4 +1,4 @@
-package com.nathan.string;
+package com.nathan.backtracking;
 
 import java.util.ArrayList;
 import java.util.Collections;

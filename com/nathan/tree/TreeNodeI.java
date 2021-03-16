@@ -1,9 +1,6 @@
 package com.nathan.tree;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 自定义实现二叉树
@@ -31,15 +28,12 @@ public class TreeNodeI {
             System.out.println(l.toString());
         }
 
-        System.out.println(t.IsBalance(root));
         System.out.println(t.KthNode(root, 4).val);
 
         String s = t.Serialize(root);//序列化
         t.deSerialize(s);//反序列化
 
         System.out.println(list.toString());
-
-        t.orderWithRecursive(root, 3);
     }
 
     //二叉搜索树转化为有序的双向链表
@@ -104,7 +98,7 @@ public class TreeNodeI {
         if (root == null || k < count) return null;
 
         TreeNode p = root;
-        Stack<TreeNode> LDRStack = new Stack<TreeNode>();
+        Stack<TreeNode> LDRStack = new Stack<>();
 
         while (p != null || !LDRStack.isEmpty()) {
             while (p != null) {
@@ -192,15 +186,6 @@ public class TreeNodeI {
         return doesTree1HaveTree2(node1.left, node2.left) && doesTree1HaveTree2(node1.right, node2.right);
     }
 
-    //判断二叉树是否平衡（左右子树高度之差小于等于1）
-    public static boolean IsBalance(TreeNode root) {
-        if (root == null) return true;
-        if (Math.abs(getHeight(root.left) - getHeight(root.right)) > 1) {
-            return false;
-        }
-        return IsBalance(root.left) && IsBalance(root.right);
-    }
-
     /**
      * 获取二叉树中两个子节点相距最大距离,可转换为二叉树两子树高度之和的问题
      * Note:根节点两子树高度之和并不一定等于两个子节点相距最大距离,存在相距最远的两子节点在根节点同一子树下的情况,故需变量 max 记录该值
@@ -231,124 +216,5 @@ public class TreeNodeI {
         max = Math.max(max, left + right); // 全局变量记录最大距离
 
         return (left > right) ? left + 1 : right + 1;
-    }
-
-    //从上往下打印树,层次遍历
-    public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        if (root == null) return list;
-        Deque<TreeNode> deque = new LinkedList();
-
-        deque.add(root);
-        while (!deque.isEmpty()) {
-            TreeNode t = deque.pop();
-            list.add(t.val);
-            if (t.left != null) deque.add(t.left);
-            if (t.right != null) deque.add(t.right);
-        }
-        return list;
-    }
-
-    // 前序遍历二叉树, 栈结构,将 root 压入,出栈,然后将 右子节点 左子节点压入
-    public ArrayList<Integer> preOrder(TreeNode root) {
-        if (root == null) return null;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        ArrayList<Integer> result = new ArrayList<>();
-        while (!stack.isEmpty()) {
-            TreeNode current = stack.pop();
-            result.add(current.val);
-
-            if (null != current.right) {
-                stack.push(current.right);
-            }
-            if (null != current.left) {
-                stack.push(current.left);
-            }
-        }
-        return result;
-    }
-
-    // 中序遍历二叉树,先将左节点压入栈,当节点为 null,栈顶元素出栈,遍历出栈元素的右节点
-    public ArrayList inOrder(TreeNode root) {
-        if (root == null) return null;
-        Stack<TreeNode> stack = new Stack<>();
-        ArrayList<Integer> result = new ArrayList<>();
-        while (null != root || !stack.isEmpty()) {
-            if (null != root) {
-                stack.push(root);
-                root = root.left;
-            } else {
-                root = stack.pop();
-                result.add(root.val);
-                root = root.right;
-
-            }
-        }
-        return result;
-    }
-
-    // 后序遍历二叉树(深度优先),两个栈实现
-    public ArrayList<Integer> sufOrder(TreeNode root) {
-        if (root == null) return null;
-        Stack<TreeNode> current = new Stack<>();
-        Stack<TreeNode> back = new Stack<>();
-        current.push(root);
-
-        while (!current.isEmpty()) {
-            TreeNode node = current.pop();
-            back.push(node);
-
-            if (null != node.left) {
-                current.push(node.left);
-            }
-
-            if (null != node.right) {
-                current.push(node.right);
-            }
-        }
-
-        ArrayList<Integer> result = new ArrayList<>();
-        while (!back.isEmpty()) {
-            TreeNode node = back.pop();
-            result.add(node.val);
-        }
-        return result;
-    }
-
-    /**
-     * 递归实现 前中后 三序列遍历
-     *
-     * @param root      树根节点
-     * @param orderMode 遍历模式,1:前序  2:中序  3:后序
-     */
-    public void orderWithRecursive(TreeNode root, int orderMode) {
-        if (root == null) {
-            return;
-        }
-        switch (orderMode) {
-            case 1:
-                visitNode(root);
-                orderWithRecursive(root.left, orderMode);
-                orderWithRecursive(root.right, orderMode);
-                break;
-            case 2:
-                orderWithRecursive(root.left, orderMode);
-                visitNode(root);
-                orderWithRecursive(root.right, orderMode);
-                break;
-            case 3:
-                orderWithRecursive(root.left, orderMode);
-                orderWithRecursive(root.right, orderMode);
-                visitNode(root);
-                break;
-            default:
-                break;
-        }
-
-    }
-
-    public void visitNode(TreeNode root) {
-        System.out.print(root.val + ",");
     }
 }

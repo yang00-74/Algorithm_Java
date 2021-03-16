@@ -1,4 +1,4 @@
-package com.nathan.array;
+package com.nathan.queue;
 
 import java.util.LinkedList;
 

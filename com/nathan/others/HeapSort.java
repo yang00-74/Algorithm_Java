@@ -5,8 +5,8 @@ import static com.nathan.util.Util.swap;
 public class HeapSort {
 
     public static void main(String[] args) {
-        int a[] = {2, 5, 8, 9, 10, 45, 56, 78};
-		new HeapSort().heapSort(a,  10);
+        int a[] = {2, 5, 8, 9, 10, 45, 56, 78, 66};
+		new HeapSort().heapSort(a,  a.length);
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
         }
@@ -14,14 +14,14 @@ public class HeapSort {
 
     public void heapAdjust(int a[], int i, int size) {
         //从a[i]向下调整堆
-        int left_child = 2 * i + 1;
-        int right_child = 2 * i + 2;
+        int leftChild = 2 * i + 1;
+        int rightChild = 2 * i + 2;
         int max = i;
         //找父节点和两个子节点中的最大值，确保父节点为最大值
-        if (left_child < size && a[left_child] > a[max])
-            max = left_child;
-        if (right_child < size && a[right_child] > a[max])
-            max = right_child;
+        if (leftChild < size && a[leftChild] > a[max])
+            max = leftChild;
+        if (rightChild < size && a[rightChild] > a[max])
+            max = rightChild;
         if (max != i) {
             swap(a, i, max);
             //记录交换前子节点位置，从该位置向下调整堆
@@ -41,12 +41,12 @@ public class HeapSort {
 
     //堆排序
     public void heapSort(int a[], int n) {
-        int heap_size = buildHeap(a, n);
-        while (heap_size > 1) {
-            // 将堆顶元素与堆的最后一个元素互换，并将最后一个元素从以后的堆调整中忽略--heap_size
-            swap(a, 0, --heap_size);
+        int heapSize = buildHeap(a, n);
+        while (heapSize > 1) {
+            // 将堆顶元素与堆的最后一个元素互换，并将最后一个元素从以后的堆调整中忽略--heapSize
+            swap(a, 0, --heapSize);
             //从新的堆顶调整堆
-            heapAdjust(a, 0, heap_size);
+            heapAdjust(a, 0, heapSize);
         }
     }
 }

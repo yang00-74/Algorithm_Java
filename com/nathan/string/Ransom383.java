@@ -19,7 +19,7 @@ public class Ransom383 {
 
         for (char c : ransomNote.toCharArray()) {
             records[c - 'a'] -= 1;
-            if (records[c-'a'] < 0) {
+            if (records[c - 'a'] < 0) {
                 return false;
             }
         }

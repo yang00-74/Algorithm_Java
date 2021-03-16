@@ -1,4 +1,4 @@
-package com.nathan.string;
+package com.nathan.stack;
 
 import java.util.Stack;
 

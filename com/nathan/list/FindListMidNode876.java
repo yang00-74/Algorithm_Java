@@ -2,7 +2,7 @@ package com.nathan.list;
 
 import java.util.Objects;
 
-public class FindListMidNode {
+public class FindListMidNode876 {
 
     /**
      * 一次遍历访问链表中间节点

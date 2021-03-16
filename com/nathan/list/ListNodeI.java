@@ -24,7 +24,28 @@ public class ListNodeI {
         c.next = d;
         d.next = e;
         e.next = f;
-       // f.next = g;
+        f.next = g;
+        ListNode slow = a;
+        ListNode fast = a;
+        ListNode mid = null;
+        while (null != fast && null != fast.next) {
+            mid = slow;
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        // 从链表中间位置将其后的节点断开
+        mid.next = null;
+
+        while (null != a) {
+            System.out.println(a.val);
+            a = a.next;
+        }
+
+        while (null != slow) {
+            System.out.println(slow.val);
+            slow = slow.next;
+        }
+
     }
 
     //链表元素出现重复就删除

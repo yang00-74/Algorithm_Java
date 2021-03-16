@@ -5,7 +5,7 @@ package com.nathan.string;
  * 另一种思路是使用栈将字符串分割为 char 入栈,依次出栈与原字符串比较即可
  */
 
-public class StringCycle {
+public class PalindromeString {
     public static void main(String[] args) {
         String s = "lkjljkl";
         char[] c = s.toCharArray();
