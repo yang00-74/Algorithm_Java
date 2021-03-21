@@ -1,9 +1,6 @@
 package com.nathan.backtracking;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @input String
@@ -25,31 +22,27 @@ public class StringArrange {
     }
 
     public ArrayList<String> permutation(String str) {
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         if (str == null || str.length() == 0) {
             return result;
         }
-        HashSet<String> set = new HashSet<String>();
-
-        fun(set, str.toCharArray(), 0);
+        TreeSet<String> set = new TreeSet<>();
+        range(str.toCharArray(), 0, set);
 
         result.addAll(set);
         Collections.sort(result);//工具类排序
         return result;
     }
 
-    void fun(HashSet<String> set, char[] str, int k) {
-        if (k == str.length) {
-            set.add(new String(str));
-            System.out.println(new String(str));
+    public void range(char[] chars, int pos, Set<String> set) {
+        if (pos == chars.length - 1) {
+            set.add(new String(chars));
             return;
         }
-        for (int i = k; i < str.length; i++) {
-            swap(str, i, k);
-
-            fun(set, str, k + 1);
-
-            swap(str, i, k);
+        for (int i = pos; i < chars.length; i++) {
+            swap(chars, i, pos);
+            range(chars, pos + 1, set);
+            swap(chars, i, pos);
         }
     }
 

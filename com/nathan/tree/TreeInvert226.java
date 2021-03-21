@@ -4,6 +4,11 @@ import java.util.Stack;
 
 public class TreeInvert226 {
 
+    /**
+     * 翻转二叉树
+     *
+     * 先序遍历，取左右节点对换
+     * */
     public TreeNode invertTree2(TreeNode root) {
         if (null == root) {
             return root;

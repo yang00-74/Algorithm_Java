@@ -1,9 +1,5 @@
 package com.nathan.list;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 /**
  * 自定义实现链表
  */
@@ -117,23 +113,6 @@ public class ListNodeI {
             }
         }
         return null;
-    }
-
-    public ListNode sortList(ListNode head) {
-        List<Integer> list = new ArrayList();
-        ListNode cur = head;
-        while (head != null) {
-            list.add(head.val);
-            head = head.next;
-        }
-        Collections.sort(list);
-        head = cur;
-        for (int i = 0; i < list.size(); i++) {
-            head.val = list.get(i);
-            head = head.next;
-        }
-        return cur;
-
     }
 
 }

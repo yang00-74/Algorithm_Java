@@ -115,8 +115,6 @@ public class Knapsack {
                 } else if (dp[i - coin] != 0) {
                     dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
-
-
             }
             for (int i = 0; i <= amount;i++) {
                 System.out.print("dp[" + i + "]:" + dp[i] + " ");

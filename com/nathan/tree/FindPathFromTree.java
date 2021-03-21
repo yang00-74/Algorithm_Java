@@ -11,8 +11,8 @@ public class FindPathFromTree {
      * <p>
      * 需从根节点到叶节点的完整路径
      */
-    private List<List<Integer>> result = new ArrayList();
-    private List<Integer> path = new ArrayList();
+    private List<List<Integer>> result = new ArrayList<>();
+    private List<Integer> path = new ArrayList<>();
 
     public List<List<Integer>> findPath(TreeNode root, Integer target) {
         if (Objects.isNull(root) || target <= 0) {
