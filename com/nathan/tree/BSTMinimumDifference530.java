@@ -7,7 +7,7 @@ public class BSTMinimumDifference530 {
     /**
      * 给你一棵所有节点为非负值的二叉搜索树，请你计算树中任意两节点的差的绝对值的最小值
      *
-     * 二叉树中序遍历为有序的数组，比较即可
+     * 二叉搜索树中序遍历为有序的数组，比较即可
      * */
     public int getMinimumDifference(TreeNode root) {
         if (null == root) {

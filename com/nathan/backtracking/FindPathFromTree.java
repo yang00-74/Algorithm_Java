@@ -1,4 +1,6 @@
-package com.nathan.tree;
+package com.nathan.backtracking;
+
+import com.nathan.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

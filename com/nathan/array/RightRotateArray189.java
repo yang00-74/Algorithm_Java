@@ -11,9 +11,9 @@ public class RightRotateArray189 {
     public void rotate(int[] nums, int k) {
         int len = nums.length;
         int n = k % len;
-        reverse(nums, 0, n - 1);
-        reverse(nums, n, len - 1);
         reverse(nums, 0, len - 1);
+        reverse(nums, n, len - 1);
+        reverse(nums, 0, n - 1);
     }
 
     public void reverse(int[] array, int left, int right) {

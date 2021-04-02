@@ -5,7 +5,7 @@ import com.nathan.util.Util;
 public class QuickSort {
     //快排
     public void quickSort(int[] list, int left, int right) {
-        if (left < right) {
+        if (left <= right) {
             // 分割数组，找到分割点
             int mid = partition(list, left, right);
             // 递归调用，对左子数组进行快速排序

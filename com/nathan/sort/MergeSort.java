@@ -3,9 +3,9 @@ package com.nathan.sort;
 public class MergeSort {
 
     //归并排序
-    public void merge(int a[], int left, int mid, int right) {
+    public void merge(int[] a, int left, int mid, int right) {
         int len = right - left + 1;
-        int temp[] = new int[len];
+        int[] temp = new int[len];
         int index = 0;
         int i = left, j = mid + 1;
         while (i <= mid && j <= right) {
@@ -22,7 +22,7 @@ public class MergeSort {
         }
     }
 
-    public void mergeSort(int a[], int left, int right) {
+    public void mergeSort(int[] a, int left, int right) {
         if (left == right) return;
         int mid = (left + right) / 2;//把数组分划
         mergeSort(a, left, mid);

@@ -28,7 +28,7 @@ public class LowestCommonAncestor236 {
         // 根节点处理
         if (null != left && null != right) {
             return root;
-        } else if (null == left){
+        } else if (null == left) {
             return right;
         } else {
             return left;
