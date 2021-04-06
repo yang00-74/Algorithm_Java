@@ -1,4 +1,4 @@
-package com.nathan.sort;
+package com.nathan.other;
 
 import java.util.ArrayList;
 import java.util.Collections;

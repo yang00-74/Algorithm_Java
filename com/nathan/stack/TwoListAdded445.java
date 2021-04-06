@@ -4,7 +4,7 @@ import com.nathan.list.ListNode;
 
 import java.util.Stack;
 
-public class TwoListAdded {
+public class TwoListAdded445 {
 
     /**
      * 假设链表中每一个节点的值都在 0 - 9 之间，那么链表整体就可以代表一个整数。

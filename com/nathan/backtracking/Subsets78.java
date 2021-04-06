@@ -34,7 +34,7 @@ public class Subsets78 {
 
         for(int i = startIndex; i < nums.length; i ++) {
             path.addLast(nums[i]);
-            backTracking(nums, i +1);
+            backTracking(nums, i + 1);
             path.removeLast();
         }
     }

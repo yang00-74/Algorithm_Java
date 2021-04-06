@@ -3,7 +3,7 @@ package com.nathan.hash;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LengthOfLongestSubstring {
+public class LengthOfLongestSubstring3 {
     /**
      * 剑指 Offer 48. 最长不含重复字符的子字符串
      *

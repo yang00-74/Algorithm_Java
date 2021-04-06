@@ -1,4 +1,4 @@
-package com.nathan.sort;
+package com.nathan.other;
 
 public class Fibonacci {
 

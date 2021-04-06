@@ -1,4 +1,4 @@
-package com.nathan.sort;
+package com.nathan.other;
 
 /**
  * 机器人每次走一步，求其在x*y的坐标内能达到的格子数
@@ -7,11 +7,11 @@ package com.nathan.sort;
  */
 public class RobotMoveCount {
     public static void main(String[] args) {
-        System.out.println(new RobotMoveCount().moveingCount(16, 10, 10));
+        System.out.println(new RobotMoveCount().moveCount(16, 10, 10));
     }
 
 
-    public int moveingCount(int k, int x, int y) {
+    public int moveCount(int k, int x, int y) {
         if (k <= 0) return 0;//先判断k是否合法
         boolean[][] b = new boolean[x][y];//标记数组
         //初始化标记数组

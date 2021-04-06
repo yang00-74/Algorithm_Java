@@ -1,6 +1,6 @@
 package com.nathan.array;
 
-public class RemoveArrayElements27 {
+public class RemoveTargetElements27 {
     /**
      * 给定一个数组 nums 和一个值 val，原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度
      *
