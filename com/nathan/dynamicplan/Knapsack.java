@@ -1,5 +1,7 @@
 package com.nathan.dynamicplan;
 
+import java.util.Arrays;
+
 /**
  * @author Ye.Yang
  * @date 19-7-8 下午7:24
@@ -13,9 +15,6 @@ public class Knapsack {
         int[] values = {2, 4, 3, 6};
 
 //        System.out.println("The max value:" + dp.knapsack(6, weights, values));
-//        dp.spiltArray(0,5);
-//        dp.canPartition(new int[]{1,2,5,6});
-        System.out.println(dp.coinChange_dp(new int[]{1, 2, 5}, 12));
     }
 
     /**
@@ -70,81 +69,6 @@ public class Knapsack {
             System.out.println();
         }
         return dp[W];
-    }
-
-    // 判断数组是否可划分为和相等的两部分,动态规划,可看成一个背包大小为 sum/2 的 0-1 背包问题
-    public boolean canPartition(int[] nums) {
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-        if (sum % 2 != 0) {
-            return false;
-        }
-        int W = sum / 2;
-        boolean[] dp = new boolean[W + 1];
-        dp[0] = true;
-        for (int num : nums) {
-            System.out.println("the num is " + num);
-            for (int i = W; i >= num; i--) {   // 从后往前，先计算 dp[i] 再计算 dp[i-num]
-                dp[i] = dp[i] || dp[i - num];
-                System.out.println("dp[" + i + "]:" + dp[i] + "," + "dp[" + (i - num) + "]:" + dp[i - num]);
-            }
-        }
-        return dp[W];
-    }
-
-
-    /***
-     * @param coins 硬币面值数组
-     * @param amount 目标数额
-     * @return 使用硬币凑出目标数额的最少硬币数
-     * */
-    public int coinChange(int[] coins, int amount) {
-        // coins = [1, 2, 5], amount = 12
-        if (amount == 0 || coins == null || coins.length == 0) {
-            return 0;
-        }
-        int[] dp = new int[amount + 1];
-        for (int coin : coins) {
-            for (int i = coin; i <= amount; i++) { // 这是一个完全背包问题。完全背包需要将 0-1 背包中逆序遍历 dp 数组改为正序遍历,
-                if (i == coin) {
-                    dp[i] = 1;
-                } else if (dp[i] == 0 && dp[i - coin] != 0) {
-                    dp[i] = dp[i - coin] + 1;
-                } else if (dp[i - coin] != 0) {
-                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
-                }
-            }
-            for (int i = 0; i <= amount;i++) {
-                System.out.print("dp[" + i + "]:" + dp[i] + " ");
-            }
-            System.out.println();
-        }
-        return dp[amount] == 0 ? -1 : dp[amount];
-    }
-
-    // TODO
-    public int coinChange_dp(int[] coins, int amount) {
-        int[][] dp = new int[coins.length][amount + 1];
-        for (int i = 0; i < coins.length; i++) {
-            int coin = coins[i];
-            for (int k = 0; k <= amount; k++) {
-                if (k >= coin) {
-                    if (i == 0) {
-                        dp[i][k] = dp[i][k - coin] + 1;
-                    } else {
-                        dp[i][k] = Math.min(dp[i][k], dp[i - 1][k - coin] + 1);
-                    }
-                }
-            }
-            for (int k = 0; k <= amount; k++) {
-                System.out.print("dp[" + i + "]" + "[" + k + "]:"+ dp[i][k] + " ");
-            }
-            System.out.println();
-        }
-
-        return dp[coins.length - 1][amount];
     }
 
 }

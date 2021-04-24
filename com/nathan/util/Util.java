@@ -27,4 +27,15 @@ public class Util {
             end--;
         }
     }
+
+    public static <V> void printArray(V[] array) {
+        if (0 == array.length) {
+            return;
+        }
+        int len = array.length;
+        for (int i = 0; i < len; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
 }

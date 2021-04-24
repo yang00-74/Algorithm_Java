@@ -14,7 +14,7 @@ public class StrStr28 {
         int[] next = getNextTable(target);
         int j = -1;
         for (int i = 0; i < haystack.length(); i++) {
-            while (j > 0 && haystack.charAt(i) != target.charAt(j + 1)) {
+            while (j >= 0 && haystack.charAt(i) != target.charAt(j + 1)) {
                 j = next[j];
             }
             if (haystack.charAt(i) == target.charAt(j + 1)) {
@@ -34,13 +34,10 @@ public class StrStr28 {
         int[] next = new int[target.length()];
         next[0] = j;
 
-        // i 为后缀的末尾，j 表示前缀的末尾
+        // i 为后缀的末尾，j 表示相同前后缀前缀的末尾下标
         // 模式串：aabaaf
         for (int i = 1; i < target.length(); i++) {
-            // 当 i = 1 时，前缀为a, 后缀为 abaaf, 有相同前后缀a
-            // 当 i = 2 时，前缀为 aa, 后缀为 baaf，无相同前后缀
-            // 当 i = 3 时，前缀为 aab，后缀为 aaf，有相同前后缀 aa
-            while (j > 0 && chars[i] != chars[j + 1]) {
+            while (j >= 0 && chars[i] != chars[j + 1]) {
                 // 前后缀不相同需向前回溯，将前缀末尾往左移动
                 j = next[j];
             }

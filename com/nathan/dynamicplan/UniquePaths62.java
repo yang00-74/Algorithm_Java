@@ -1,6 +1,6 @@
 package com.nathan.dynamicplan;
 
-public class UniquePaths {
+public class UniquePaths62 {
     /**
      * 一个机器人在m×n大小的地图的左上角（起点）。
      * 机器人每次向下或向右移动。机器人要到达地图的右下角（终点）。

@@ -14,7 +14,7 @@ public class SplitNumber {
 
     public static void main(String[] args) {
 //		new CountIntSplit().FindContinueSequence(10);
-        new SplitNumber().dfs(1,4);
+        new SplitNumber().backTracking(1,4);
     }
 
     int s[] = new int[100];//存储序列的数组
@@ -22,7 +22,7 @@ public class SplitNumber {
     int sum = 0;
 
 
-    public void dfs(int index, int n) {
+    public void backTracking(int index, int n) {
 
         if (sum == n) {
             for (int i = 0; i <= count - 1; i++) {
@@ -39,7 +39,7 @@ public class SplitNumber {
             sum += i;
             s[count++] = i; // 解空间记录
             System.out.println("DFS: " + i + ", s[] index: " + count);
-            dfs(i,n);
+            backTracking(i,n);
             sum -= i;
             s[--count] = 0;//回退数组下标,返回上一层
         }
