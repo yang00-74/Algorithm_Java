@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class FindPathFromTree {
+public class FindPathFromTree113 {
 
     /**
      * 目标和为target的路径(回溯法)
@@ -16,9 +16,18 @@ public class FindPathFromTree {
     private List<List<Integer>> result = new ArrayList<>();
     private List<Integer> path = new ArrayList<>();
 
-    public List<List<Integer>> findPath(TreeNode root, Integer target) {
+    public List<List<Integer>> pathSum(TreeNode root, Integer target) {
         if (Objects.isNull(root) || target <= 0) {
             return result;
+        }
+        backTracking(root, target);
+        return result;
+
+    }
+
+    public void backTracking(TreeNode root, Integer target) {
+        if (Objects.isNull(root) || target <= 0) {
+            return;
         }
         target -= root.val;
         path.add(root.val);
@@ -26,12 +35,9 @@ public class FindPathFromTree {
             result.add(new ArrayList<>(path));
         }
 
-        findPath(root.left, target);
-        findPath(root.right, target);
+        backTracking(root.left, target);
+        backTracking(root.right, target);
 
         path.remove(path.size() - 1);
-        return result;
-
     }
-
 }

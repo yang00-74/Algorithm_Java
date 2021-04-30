@@ -73,10 +73,10 @@ public class StockK2MaxProfit123 {
     }
 
     public static int maxProfitK2Dp(int[] prices) {
-        int max_k = 2;
-        int[][][] dp = new int[prices.length][max_k + 1][2];
+        int maxK = 2;
+        int[][][] dp = new int[prices.length][maxK + 1][2];
         for (int i = 0; i < prices.length; i++) {
-            for (int k = 1; k <= max_k; k++) {
+            for (int k = 1; k <= maxK; k++) {
                 if (i == 0) {
                     dp[i][k][0] = 0;
                     dp[i][k][1] = -prices[i];
@@ -86,7 +86,7 @@ public class StockK2MaxProfit123 {
                 dp[i][k][1] = Math.max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
             }
         }
-        return dp[prices.length - 1][max_k][0];
+        return dp[prices.length - 1][maxK][0];
     }
 
     public int maxProfit(int[] prices) {
