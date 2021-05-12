@@ -13,7 +13,7 @@ public class FindTargetSumWays494 {
      *   故此，left - (sum -left) = S ---> left = (sum + S) / 2，需注意 (sum + S) 如果为奇数则无解，因为除以2会出现小数
      *
      *   1. dp[i] 表示使用一个物品时装满容量为 i 的背包的方法数， left >= i >= 物品 num
-     *   2. 例如背包容量 i = 5，当前遍历到物品 nums[2] = 3，则 dp[5] 会等于之前遍历到物品
+     *   2. 例如背包容量 i = 5，当前遍历到物品 nums[2] = 3，则 dp[5] 会等于之前遍历到上一个物品
      *   nums[1] = 2 时的 dp[5] 加上 dp[2] 的方法数
      *   也就是 dp[i] += dp[i - nums[k]]，
      *

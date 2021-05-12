@@ -23,7 +23,7 @@ public class LastStoneWeightII1049 {
             sum += stone;
         }
 
-        int target = sum / 2;
+        int target = sum >> 1;
         int[] dp = new int[target + 1];
         for (int stone : stones) {
             for (int j = target; j >= stone; j--) {
