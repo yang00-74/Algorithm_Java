@@ -7,17 +7,25 @@ package com.nathan.string;
 
 public class PalindromeString {
     public static void main(String[] args) {
-        String s = "lkjljkl";
-        char[] c = s.toCharArray();
-        int len = c.length - 1;
+        String s = "helloGod";
+        if (palindrome(s)) {
+            System.out.println("是回文");
+        } else {
+            System.out.println("不是回文");
+        }
+    }
 
-
-        for (int start = 0, end1 = len; start <= len && end1 >= 0; start++, end1--) {
-            if (c[start] != c[end1]) {
-                System.out.println("不是回文");
-                return;
+    public static boolean palindrome(String s) {
+        if (null == s || "".equals(s)) {
+            return true;
+        }
+        int left = 0;
+        int right = s.length() - 1;
+        while (left <= right) {
+            if (s.charAt(left++) != s.charAt(right++)) {
+                return false;
             }
         }
-        System.out.println("是回文");
+        return true;
     }
 }

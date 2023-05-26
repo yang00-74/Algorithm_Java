@@ -4,7 +4,7 @@ package com.nathan.array;
  * @author Ye.Yang
  * @date 19-7-25 下午2:26
  **/
-public class MissedNumberOfArray {
+public class MissedNumberOfArray1714 {
 
 
     public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class MissedNumberOfArray {
 
         int[] b = new int[]{1, 3, 4};
 
-        System.out.println(MissedNumberOfArray.missingNumber(b));
+        System.out.println(MissedNumberOfArray1714.missingNumber(b));
     }
 
     /**

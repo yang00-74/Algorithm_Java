@@ -29,9 +29,8 @@ public class Trap42 {
         long res = 0;
         for (int i = 0; i < height.length; i++) {
             // 水坑可能的右下标
-            int right = i;
-            //单调栈模板，当遇到比栈中最低元素高的元素时，弹出栈里的元素并计算盛水量
-            while (!stack.empty() && height[right] > height[stack.peek()]) {
+            //单调栈模板，当遇到比栈中最低元素高的元素时，弹出栈里的元素开始计算盛水量
+            while (!stack.empty() && height[i] > height[stack.peek()]) {
                 // 水坑底部下标
                 int bottom = stack.pop();
                 //无元素，取消操作
@@ -40,9 +39,9 @@ public class Trap42 {
                 }
                 // 水坑左边下标
                 int left = stack.peek();
-                long distance = right - left - 1;
+                long distance = i - left - 1;
                 // 取最低点左右两边较低的墙壁的高度 减去底部高度获得 h
-                int h = Math.min(height[right], height[left]) - height[bottom];
+                int h = Math.min(height[i], height[left]) - height[bottom];
                 if (h > 0) {
                     res += distance * h;
                 }

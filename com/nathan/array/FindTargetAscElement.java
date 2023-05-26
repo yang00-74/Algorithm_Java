@@ -9,8 +9,8 @@ public class FindTargetAscElement {
 
     @Test
     public void test() {
-        int[] nums = new int[]{10,9,2,5,3,7,101,18};
-        printPivotElements(nums, nums.length);
+        int[] nums = new int[]{10,8,101};
+        printPivotElements(nums);
     }
     /**
      * 在无序不重复数组中寻找满足如下条件的元素:
@@ -21,7 +21,11 @@ public class FindTargetAscElement {
      * 思路: 从右往左遍历，使用辅助数组记录每个下标上已经遍历过的数中最小的数
      *       再从左往右遍历，记录已经遍历过的数中最大的数，如果当前下标大于该数且小于辅助数组后一下标上记录的最小数，则其符合条件
      * */
-    public void printPivotElements(int[] nums, int len) {
+    public int printPivotElements(int[] nums) {
+        if (null == nums || nums.length < 3) {
+            return -1;
+        }
+        int len = nums.length;
         // 从右往左，记录每个位置及其之后所有数中的最小数
         int[] rightMin = new int[len];
         int rMin = nums[len - 1];
@@ -38,9 +42,10 @@ public class FindTargetAscElement {
             if (nums[i] > lMax) {
                 lMax = nums[i];
                 if (nums[i] < rightMin[i + 1]) {
-                    System.out.println(nums[i]);
+                    return nums[i];
                 }
             }
         }
+        return -1;
     }
 }

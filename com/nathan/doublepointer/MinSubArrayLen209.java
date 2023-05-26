@@ -11,9 +11,7 @@ public class MinSubArrayLen209 {
      * 计算取前后指针相差最小的值
      * */
     public int minSubArrayLen( int target, int[] nums) {
-        int result = Integer.MAX_VALUE;
-        int sum = 0;
-        int left = 0;
+        int result = Integer.MAX_VALUE, sum = 0, left = 0;
 
         for (int right = 0; right < nums.length; right++) {
             sum += nums[right];

@@ -15,7 +15,9 @@ public class RestoreIpAddresses93 {
      *
      * */
     private List<String> res = new ArrayList<>();
+
     private Deque<String> sb = new ArrayDeque<>();
+
     public List<String> restoreIpAddresses(String s) {
         if (null == s || "".equals(s)) {
             return res;
@@ -35,14 +37,13 @@ public class RestoreIpAddresses93 {
         }
 
         for (int i = startIndex; i < s.length(); i++) {
-            if (isValid(s, startIndex, i)) {
-                sb.addLast(s.substring(startIndex, i + 1));
-                backTracking(s, i + 1);
-                sb.removeLast();
-            } else {
+            if (!isValid(s, startIndex, i)) {
                 // 不合法的话直接结束本层循环
                 break;
             }
+            sb.addLast(s.substring(startIndex, i + 1));
+            backTracking(s, i + 1);
+            sb.removeLast();
         }
     }
 
